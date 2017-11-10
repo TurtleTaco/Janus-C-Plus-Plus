@@ -1,0 +1,1139 @@
+
+
+================================================================
+== Vivado HLS Report for 'cordic_base'
+================================================================
+* Date:           Fri Nov 10 12:18:15 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        astroSim
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffve1924-3-e-es2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.12|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    4|    4|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 5
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 5
+* Pipeline: 1
+  Pipeline-0: II = 1, D = 5, States = { 1 2 3 4 5 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+* FSM state operations: 
+
+ <State 1>: 8.05ns
+ST_1: inputData_in_V_read_1 (2)  [1/1] 0.00ns
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:0  %inputData_in_V_read_1 = call i48 @_ssdm_op_Read.ap_auto.i48(i48 %inputData_in_V_read)
+
+ST_1: tmp (3)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:752->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:1  %tmp = call i1 @_ssdm_op_BitSelect.i1.i48.i32(i48 %inputData_in_V_read_1, i32 47)
+
+ST_1: tmp_1160 (4)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:752->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:2  %tmp_1160 = trunc i48 %inputData_in_V_read_1 to i1
+
+ST_1: p_Result_2 (5)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:3  %p_Result_2 = call i50 @_ssdm_op_BitConcatenate.i50.i49.i1(i49 0, i1 %tmp)
+
+ST_1: rem_next_V (6)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:4  %rem_next_V = add i50 -1, %p_Result_2
+
+ST_1: tmp_1161 (7)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:5  %tmp_1161 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V, i32 25)
+
+ST_1: not_Result_3 (8)  [1/1] 0.04ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:6  %not_Result_3 = xor i1 %tmp_1161, true
+
+ST_1: p_Result_29_0_rem_s (9)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:7  %p_Result_29_0_rem_s = select i1 %tmp_1161, i50 %p_Result_2, i50 %rem_next_V
+
+ST_1: tmp_1162 (10)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:8  %tmp_1162 = trunc i50 %p_Result_29_0_rem_s to i24
+
+ST_1: tmp_1 (11)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:9  %tmp_1 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 45, i32 46)
+
+ST_1: tmp_2 (12)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:10  %tmp_2 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1162, i2 %tmp_1)
+
+ST_1: p_Result_29_1 (13)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:11  %p_Result_29_1 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_Result_29_0_rem_s, i26 %tmp_2, i32 0, i32 25)
+
+ST_1: tmp_3 (14)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:12  %tmp_3 = zext i1 %not_Result_3 to i23
+
+ST_1: p_Result_30_1_s (15)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:13  %p_Result_30_1_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_3, i2 1)
+
+ST_1: rem_next_V_1 (16)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:14  %rem_next_V_1 = sub i50 %p_Result_29_1, %p_Result_30_1_s
+
+ST_1: tmp_4 (17)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:15  %tmp_4 = call i2 @_ssdm_op_BitConcatenate.i2.i1.i1(i1 %not_Result_3, i1 false)
+
+ST_1: tmp_1163 (18)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:16  %tmp_1163 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_1, i32 25)
+
+ST_1: tmp_118 (19)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:17  %tmp_118 = call i2 @_ssdm_op_BitConcatenate.i2.i1.i1(i1 %not_Result_3, i1 true)
+
+ST_1: sqrt_int_2_1_v (20)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:18  %sqrt_int_2_1_v = select i1 %tmp_1163, i2 %tmp_4, i2 %tmp_118
+
+ST_1: p_0289_2_i_1 (21)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:19  %p_0289_2_i_1 = select i1 %tmp_1163, i50 %p_Result_29_1, i50 %rem_next_V_1
+
+ST_1: tmp_1164 (22)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:20  %tmp_1164 = trunc i50 %p_0289_2_i_1 to i24
+
+ST_1: tmp_7 (23)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:21  %tmp_7 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 43, i32 44)
+
+ST_1: tmp_8 (24)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:22  %tmp_8 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1164, i2 %tmp_7)
+
+ST_1: p_Result_29_2 (25)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:23  %p_Result_29_2 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_1, i26 %tmp_8, i32 0, i32 25)
+
+ST_1: tmp_9 (26)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:24  %tmp_9 = zext i2 %sqrt_int_2_1_v to i23
+
+ST_1: p_Result_30_2_s (27)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:25  %p_Result_30_2_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_9, i2 1)
+
+ST_1: rem_next_V_2 (28)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:26  %rem_next_V_2 = sub i50 %p_Result_29_2, %p_Result_30_2_s
+
+ST_1: tmp_s (29)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:27  %tmp_s = call i3 @_ssdm_op_BitConcatenate.i3.i2.i1(i2 %sqrt_int_2_1_v, i1 false)
+
+ST_1: tmp_1165 (30)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:28  %tmp_1165 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_2, i32 25)
+
+ST_1: tmp_584 (31)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:29  %tmp_584 = call i3 @_ssdm_op_BitConcatenate.i3.i2.i1(i2 %sqrt_int_2_1_v, i1 true)
+
+ST_1: sqrt_int_2_2_v (32)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:30  %sqrt_int_2_2_v = select i1 %tmp_1165, i3 %tmp_s, i3 %tmp_584
+
+ST_1: p_0289_2_i_2 (33)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:31  %p_0289_2_i_2 = select i1 %tmp_1165, i50 %p_Result_29_2, i50 %rem_next_V_2
+
+ST_1: tmp_1166 (34)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:32  %tmp_1166 = trunc i50 %p_0289_2_i_2 to i24
+
+ST_1: tmp_10 (35)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:33  %tmp_10 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 41, i32 42)
+
+ST_1: tmp_11 (36)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:34  %tmp_11 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1166, i2 %tmp_10)
+
+ST_1: p_Result_29_3 (37)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:35  %p_Result_29_3 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_2, i26 %tmp_11, i32 0, i32 25)
+
+ST_1: tmp_12 (38)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:36  %tmp_12 = zext i3 %sqrt_int_2_2_v to i23
+
+ST_1: p_Result_30_3_s (39)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:37  %p_Result_30_3_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_12, i2 1)
+
+ST_1: rem_next_V_3 (40)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:38  %rem_next_V_3 = sub i50 %p_Result_29_3, %p_Result_30_3_s
+
+ST_1: tmp_1167 (41)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:39  %tmp_1167 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %sqrt_int_2_2_v, i1 false)
+
+ST_1: tmp_1168 (42)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:40  %tmp_1168 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_3, i32 25)
+
+ST_1: tmp_1169 (43)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:41  %tmp_1169 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %sqrt_int_2_2_v, i1 true)
+
+ST_1: sqrt_int_2_3_v (44)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:42  %sqrt_int_2_3_v = select i1 %tmp_1168, i4 %tmp_1167, i4 %tmp_1169
+
+ST_1: p_0289_2_i_3 (45)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:43  %p_0289_2_i_3 = select i1 %tmp_1168, i50 %p_Result_29_3, i50 %rem_next_V_3
+
+ST_1: tmp_1170 (46)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:44  %tmp_1170 = trunc i50 %p_0289_2_i_3 to i24
+
+ST_1: tmp_15 (47)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:45  %tmp_15 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 39, i32 40)
+
+ST_1: tmp_16 (48)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:46  %tmp_16 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1170, i2 %tmp_15)
+
+ST_1: p_Result_29_4 (49)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:47  %p_Result_29_4 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_3, i26 %tmp_16, i32 0, i32 25)
+
+ST_1: tmp_17 (50)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:48  %tmp_17 = zext i4 %sqrt_int_2_3_v to i23
+
+ST_1: p_Result_30_4_s (51)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:49  %p_Result_30_4_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_17, i2 1)
+
+ST_1: rem_next_V_4 (52)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:50  %rem_next_V_4 = sub i50 %p_Result_29_4, %p_Result_30_4_s
+
+ST_1: tmp_1171 (53)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:51  %tmp_1171 = call i5 @_ssdm_op_BitConcatenate.i5.i4.i1(i4 %sqrt_int_2_3_v, i1 false)
+
+ST_1: tmp_1172 (54)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:52  %tmp_1172 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_4, i32 25)
+
+ST_1: tmp_1173 (55)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:53  %tmp_1173 = call i5 @_ssdm_op_BitConcatenate.i5.i4.i1(i4 %sqrt_int_2_3_v, i1 true)
+
+ST_1: sqrt_int_2_4_v (56)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:54  %sqrt_int_2_4_v = select i1 %tmp_1172, i5 %tmp_1171, i5 %tmp_1173
+
+ST_1: p_0289_2_i_4 (57)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:55  %p_0289_2_i_4 = select i1 %tmp_1172, i50 %p_Result_29_4, i50 %rem_next_V_4
+
+ST_1: tmp_1174 (58)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:56  %tmp_1174 = trunc i50 %p_0289_2_i_4 to i24
+
+ST_1: tmp_20 (59)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:57  %tmp_20 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 37, i32 38)
+
+ST_1: tmp_21 (60)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:58  %tmp_21 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1174, i2 %tmp_20)
+
+ST_1: p_Result_29_5 (61)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:59  %p_Result_29_5 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_4, i26 %tmp_21, i32 0, i32 25)
+
+ST_1: tmp_1175 (62)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:60  %tmp_1175 = zext i5 %sqrt_int_2_4_v to i23
+
+ST_1: p_Result_30_5_s (63)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:61  %p_Result_30_5_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1175, i2 1)
+
+ST_1: rem_next_V_5 (64)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:62  %rem_next_V_5 = sub i50 %p_Result_29_5, %p_Result_30_5_s
+
+ST_1: tmp_1178 (67)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:65  %tmp_1178 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_5, i32 25)
+
+ST_1: p_0289_2_i_5 (71)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:69  %p_0289_2_i_5 = select i1 %tmp_1178, i50 %p_Result_29_5, i50 %rem_next_V_5
+
+ST_1: tmp_1180 (72)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:70  %tmp_1180 = trunc i50 %p_0289_2_i_5 to i24
+
+ST_1: tmp_25 (73)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:71  %tmp_25 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 35, i32 36)
+
+ST_1: tmp_26 (74)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:72  %tmp_26 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1180, i2 %tmp_25)
+
+ST_1: p_Result_29_6 (75)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:73  %p_Result_29_6 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_5, i26 %tmp_26, i32 0, i32 25)
+
+ST_1: tmp_30 (86)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:84  %tmp_30 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 33, i32 34)
+
+ST_1: tmp_35 (99)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:97  %tmp_35 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 31, i32 32)
+
+ST_1: tmp_40 (112)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:110  %tmp_40 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 29, i32 30)
+
+ST_1: tmp_45 (125)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:123  %tmp_45 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 27, i32 28)
+
+ST_1: tmp_50 (138)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:136  %tmp_50 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 25, i32 26)
+
+ST_1: tmp_55 (151)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:149  %tmp_55 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 23, i32 24)
+
+ST_1: tmp_60 (164)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:162  %tmp_60 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 21, i32 22)
+
+ST_1: tmp_65 (177)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:175  %tmp_65 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 19, i32 20)
+
+ST_1: tmp_70 (190)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:188  %tmp_70 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 17, i32 18)
+
+ST_1: tmp_75 (203)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:201  %tmp_75 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 15, i32 16)
+
+ST_1: tmp_80 (216)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:214  %tmp_80 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 13, i32 14)
+
+ST_1: tmp_85 (229)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:227  %tmp_85 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 11, i32 12)
+
+ST_1: tmp_90 (242)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:240  %tmp_90 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 9, i32 10)
+
+ST_1: tmp_95 (255)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:253  %tmp_95 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 7, i32 8)
+
+ST_1: tmp_100 (268)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:266  %tmp_100 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 5, i32 6)
+
+ST_1: tmp_105 (281)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:279  %tmp_105 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 3, i32 4)
+
+ST_1: tmp_110 (294)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:292  %tmp_110 = call i2 @_ssdm_op_PartSelect.i2.i48.i32.i32(i48 %inputData_in_V_read_1, i32 1, i32 2)
+
+
+ <State 2>: 8.12ns
+ST_2: tmp_1176 (65)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:63  %tmp_1176 = call i6 @_ssdm_op_BitConcatenate.i6.i5.i1(i5 %sqrt_int_2_4_v, i1 false)
+
+ST_2: tmp_1177 (66)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:64  %tmp_1177 = zext i6 %tmp_1176 to i25
+
+ST_2: tmp_1179 (68)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:66  %tmp_1179 = call i6 @_ssdm_op_BitConcatenate.i6.i5.i1(i5 %sqrt_int_2_4_v, i1 true)
+
+ST_2: p_Result_33_5 (69)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:67  %p_Result_33_5 = zext i6 %tmp_1179 to i25
+
+ST_2: sqrt_int_2_5 (70)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:68  %sqrt_int_2_5 = select i1 %tmp_1178, i25 %tmp_1177, i25 %p_Result_33_5
+
+ST_2: tmp_1181 (76)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:74  %tmp_1181 = trunc i25 %sqrt_int_2_5 to i23
+
+ST_2: p_Result_30_6_s (77)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:75  %p_Result_30_6_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1181, i2 1)
+
+ST_2: rem_next_V_6 (78)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:76  %rem_next_V_6 = sub i50 %p_Result_29_6, %p_Result_30_6_s
+
+ST_2: tmp_1182 (79)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_6)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:77  %tmp_1182 = trunc i25 %sqrt_int_2_5 to i24
+
+ST_2: tmp_1183 (80)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_6)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:78  %tmp_1183 = shl i25 %sqrt_int_2_5, 1
+
+ST_2: tmp_1184 (81)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:79  %tmp_1184 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_6, i32 25)
+
+ST_2: p_Result_33_6 (82)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_6)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:80  %p_Result_33_6 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1182, i1 true)
+
+ST_2: sqrt_int_2_6 (83)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:81  %sqrt_int_2_6 = select i1 %tmp_1184, i25 %tmp_1183, i25 %p_Result_33_6
+
+ST_2: p_0289_2_i_6 (84)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:82  %p_0289_2_i_6 = select i1 %tmp_1184, i50 %p_Result_29_6, i50 %rem_next_V_6
+
+ST_2: tmp_1185 (85)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:83  %tmp_1185 = trunc i50 %p_0289_2_i_6 to i24
+
+ST_2: tmp_31 (87)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:85  %tmp_31 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1185, i2 %tmp_30)
+
+ST_2: p_Result_29_7 (88)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:86  %p_Result_29_7 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_6, i26 %tmp_31, i32 0, i32 25)
+
+ST_2: tmp_1186 (89)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:87  %tmp_1186 = trunc i25 %sqrt_int_2_6 to i23
+
+ST_2: p_Result_30_7_s (90)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:88  %p_Result_30_7_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1186, i2 1)
+
+ST_2: rem_next_V_7 (91)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:89  %rem_next_V_7 = sub i50 %p_Result_29_7, %p_Result_30_7_s
+
+ST_2: tmp_1187 (92)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_7)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:90  %tmp_1187 = trunc i25 %sqrt_int_2_6 to i24
+
+ST_2: tmp_1188 (93)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_7)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:91  %tmp_1188 = shl i25 %sqrt_int_2_6, 1
+
+ST_2: tmp_1189 (94)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:92  %tmp_1189 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_7, i32 25)
+
+ST_2: p_Result_33_7 (95)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_7)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:93  %p_Result_33_7 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1187, i1 true)
+
+ST_2: sqrt_int_2_7 (96)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:94  %sqrt_int_2_7 = select i1 %tmp_1189, i25 %tmp_1188, i25 %p_Result_33_7
+
+ST_2: p_0289_2_i_7 (97)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:95  %p_0289_2_i_7 = select i1 %tmp_1189, i50 %p_Result_29_7, i50 %rem_next_V_7
+
+ST_2: tmp_1190 (98)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:96  %tmp_1190 = trunc i50 %p_0289_2_i_7 to i24
+
+ST_2: tmp_36 (100)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:98  %tmp_36 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1190, i2 %tmp_35)
+
+ST_2: p_Result_29_8 (101)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:99  %p_Result_29_8 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_7, i26 %tmp_36, i32 0, i32 25)
+
+ST_2: tmp_1191 (102)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:100  %tmp_1191 = trunc i25 %sqrt_int_2_7 to i23
+
+ST_2: p_Result_30_8_s (103)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:101  %p_Result_30_8_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1191, i2 1)
+
+ST_2: rem_next_V_8 (104)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:102  %rem_next_V_8 = sub i50 %p_Result_29_8, %p_Result_30_8_s
+
+ST_2: tmp_1192 (105)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_8)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:103  %tmp_1192 = trunc i25 %sqrt_int_2_7 to i24
+
+ST_2: tmp_1193 (106)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_8)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:104  %tmp_1193 = shl i25 %sqrt_int_2_7, 1
+
+ST_2: tmp_1194 (107)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:105  %tmp_1194 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_8, i32 25)
+
+ST_2: p_Result_33_8 (108)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_8)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:106  %p_Result_33_8 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1192, i1 true)
+
+ST_2: sqrt_int_2_8 (109)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:107  %sqrt_int_2_8 = select i1 %tmp_1194, i25 %tmp_1193, i25 %p_Result_33_8
+
+ST_2: p_0289_2_i_8 (110)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:108  %p_0289_2_i_8 = select i1 %tmp_1194, i50 %p_Result_29_8, i50 %rem_next_V_8
+
+ST_2: tmp_1195 (111)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:109  %tmp_1195 = trunc i50 %p_0289_2_i_8 to i24
+
+ST_2: tmp_41 (113)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:111  %tmp_41 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1195, i2 %tmp_40)
+
+ST_2: p_Result_29_9 (114)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:112  %p_Result_29_9 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_8, i26 %tmp_41, i32 0, i32 25)
+
+ST_2: tmp_1196 (115)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:113  %tmp_1196 = trunc i25 %sqrt_int_2_8 to i23
+
+ST_2: p_Result_30_9_s (116)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:114  %p_Result_30_9_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1196, i2 1)
+
+ST_2: rem_next_V_9 (117)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:115  %rem_next_V_9 = sub i50 %p_Result_29_9, %p_Result_30_9_s
+
+ST_2: tmp_1197 (118)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_9)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:116  %tmp_1197 = trunc i25 %sqrt_int_2_8 to i24
+
+ST_2: tmp_1198 (119)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_9)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:117  %tmp_1198 = shl i25 %sqrt_int_2_8, 1
+
+ST_2: tmp_1199 (120)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:118  %tmp_1199 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_9, i32 25)
+
+ST_2: p_Result_33_9 (121)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_9)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:119  %p_Result_33_9 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1197, i1 true)
+
+ST_2: sqrt_int_2_9 (122)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:120  %sqrt_int_2_9 = select i1 %tmp_1199, i25 %tmp_1198, i25 %p_Result_33_9
+
+ST_2: p_0289_2_i_9 (123)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:121  %p_0289_2_i_9 = select i1 %tmp_1199, i50 %p_Result_29_9, i50 %rem_next_V_9
+
+ST_2: tmp_1200 (124)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:122  %tmp_1200 = trunc i50 %p_0289_2_i_9 to i24
+
+ST_2: tmp_46 (126)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:124  %tmp_46 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1200, i2 %tmp_45)
+
+ST_2: p_Result_29_s (127)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:125  %p_Result_29_s = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_9, i26 %tmp_46, i32 0, i32 25)
+
+ST_2: tmp_1201 (128)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:126  %tmp_1201 = trunc i25 %sqrt_int_2_9 to i23
+
+ST_2: p_Result_30_10_s (129)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:127  %p_Result_30_10_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1201, i2 1)
+
+ST_2: rem_next_V_s (130)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:128  %rem_next_V_s = sub i50 %p_Result_29_s, %p_Result_30_10_s
+
+ST_2: tmp_1202 (131)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_s)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:129  %tmp_1202 = trunc i25 %sqrt_int_2_9 to i24
+
+ST_2: tmp_1203 (132)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_s)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:130  %tmp_1203 = shl i25 %sqrt_int_2_9, 1
+
+ST_2: tmp_1204 (133)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:131  %tmp_1204 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_s, i32 25)
+
+ST_2: p_Result_33_s (134)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_s)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:132  %p_Result_33_s = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1202, i1 true)
+
+ST_2: sqrt_int_2_s (135)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:133  %sqrt_int_2_s = select i1 %tmp_1204, i25 %tmp_1203, i25 %p_Result_33_s
+
+ST_2: p_0289_2_i_s (136)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:134  %p_0289_2_i_s = select i1 %tmp_1204, i50 %p_Result_29_s, i50 %rem_next_V_s
+
+ST_2: tmp_1205 (137)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:135  %tmp_1205 = trunc i50 %p_0289_2_i_s to i24
+
+ST_2: tmp_51 (139)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:137  %tmp_51 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1205, i2 %tmp_50)
+
+ST_2: p_Result_29_10 (140)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:138  %p_Result_29_10 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_s, i26 %tmp_51, i32 0, i32 25)
+
+ST_2: tmp_1206 (141)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:139  %tmp_1206 = trunc i25 %sqrt_int_2_s to i23
+
+ST_2: p_Result_30_11_s (142)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:140  %p_Result_30_11_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1206, i2 1)
+
+ST_2: rem_next_V_10 (143)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:141  %rem_next_V_10 = sub i50 %p_Result_29_10, %p_Result_30_11_s
+
+ST_2: tmp_1207 (144)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_1)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:142  %tmp_1207 = trunc i25 %sqrt_int_2_s to i24
+
+ST_2: tmp_1208 (145)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_1)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:143  %tmp_1208 = shl i25 %sqrt_int_2_s, 1
+
+ST_2: tmp_1209 (146)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:144  %tmp_1209 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_10, i32 25)
+
+ST_2: p_Result_33_1 (147)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_1)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:145  %p_Result_33_1 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1207, i1 true)
+
+ST_2: sqrt_int_2_1 (148)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:146  %sqrt_int_2_1 = select i1 %tmp_1209, i25 %tmp_1208, i25 %p_Result_33_1
+
+ST_2: p_0289_2_i_10 (149)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:147  %p_0289_2_i_10 = select i1 %tmp_1209, i50 %p_Result_29_10, i50 %rem_next_V_10
+
+ST_2: tmp_1210 (150)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:148  %tmp_1210 = trunc i50 %p_0289_2_i_10 to i24
+
+ST_2: tmp_56 (152)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:150  %tmp_56 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1210, i2 %tmp_55)
+
+ST_2: p_Result_29_11 (153)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:151  %p_Result_29_11 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_10, i26 %tmp_56, i32 0, i32 25)
+
+ST_2: tmp_1211 (154)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:152  %tmp_1211 = trunc i25 %sqrt_int_2_1 to i23
+
+
+ <State 3>: 1.34ns
+ST_3: p_Result_30_12_s (155)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:153  %p_Result_30_12_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1211, i2 1)
+
+ST_3: rem_next_V_11 (156)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:154  %rem_next_V_11 = sub i50 %p_Result_29_11, %p_Result_30_12_s
+
+ST_3: tmp_1214 (159)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:157  %tmp_1214 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_11, i32 25)
+
+ST_3: p_0289_2_i_11 (162)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:160  %p_0289_2_i_11 = select i1 %tmp_1214, i50 %p_Result_29_11, i50 %rem_next_V_11
+
+ST_3: tmp_1215 (163)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:161  %tmp_1215 = trunc i50 %p_0289_2_i_11 to i24
+
+ST_3: tmp_61 (165)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:163  %tmp_61 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1215, i2 %tmp_60)
+
+ST_3: p_Result_29_12 (166)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:164  %p_Result_29_12 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_11, i26 %tmp_61, i32 0, i32 25)
+
+
+ <State 4>: 8.12ns
+ST_4: tmp_1212 (157)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_2)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:155  %tmp_1212 = trunc i25 %sqrt_int_2_1 to i24
+
+ST_4: tmp_1213 (158)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_2)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:156  %tmp_1213 = shl i25 %sqrt_int_2_1, 1
+
+ST_4: p_Result_33_2 (160)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_2)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:158  %p_Result_33_2 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1212, i1 true)
+
+ST_4: sqrt_int_2_2 (161)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:159  %sqrt_int_2_2 = select i1 %tmp_1214, i25 %tmp_1213, i25 %p_Result_33_2
+
+ST_4: tmp_1216 (167)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:165  %tmp_1216 = trunc i25 %sqrt_int_2_2 to i23
+
+ST_4: p_Result_30_13_s (168)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:166  %p_Result_30_13_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1216, i2 1)
+
+ST_4: rem_next_V_12 (169)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:167  %rem_next_V_12 = sub i50 %p_Result_29_12, %p_Result_30_13_s
+
+ST_4: tmp_1217 (170)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_3)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:168  %tmp_1217 = trunc i25 %sqrt_int_2_2 to i24
+
+ST_4: tmp_1218 (171)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_3)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:169  %tmp_1218 = shl i25 %sqrt_int_2_2, 1
+
+ST_4: tmp_1219 (172)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:170  %tmp_1219 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_12, i32 25)
+
+ST_4: p_Result_33_3 (173)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_3)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:171  %p_Result_33_3 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1217, i1 true)
+
+ST_4: sqrt_int_2_3 (174)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:172  %sqrt_int_2_3 = select i1 %tmp_1219, i25 %tmp_1218, i25 %p_Result_33_3
+
+ST_4: p_0289_2_i_12 (175)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:173  %p_0289_2_i_12 = select i1 %tmp_1219, i50 %p_Result_29_12, i50 %rem_next_V_12
+
+ST_4: tmp_1220 (176)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:174  %tmp_1220 = trunc i50 %p_0289_2_i_12 to i24
+
+ST_4: tmp_66 (178)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:176  %tmp_66 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1220, i2 %tmp_65)
+
+ST_4: p_Result_29_13 (179)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:177  %p_Result_29_13 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_12, i26 %tmp_66, i32 0, i32 25)
+
+ST_4: tmp_1221 (180)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:178  %tmp_1221 = trunc i25 %sqrt_int_2_3 to i23
+
+ST_4: p_Result_30_14_s (181)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:179  %p_Result_30_14_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1221, i2 1)
+
+ST_4: rem_next_V_13 (182)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:180  %rem_next_V_13 = sub i50 %p_Result_29_13, %p_Result_30_14_s
+
+ST_4: tmp_1222 (183)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_4)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:181  %tmp_1222 = trunc i25 %sqrt_int_2_3 to i24
+
+ST_4: tmp_1223 (184)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_4)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:182  %tmp_1223 = shl i25 %sqrt_int_2_3, 1
+
+ST_4: tmp_1224 (185)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:183  %tmp_1224 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_13, i32 25)
+
+ST_4: p_Result_33_4 (186)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_4)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:184  %p_Result_33_4 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1222, i1 true)
+
+ST_4: sqrt_int_2_4 (187)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:185  %sqrt_int_2_4 = select i1 %tmp_1224, i25 %tmp_1223, i25 %p_Result_33_4
+
+ST_4: p_0289_2_i_13 (188)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:186  %p_0289_2_i_13 = select i1 %tmp_1224, i50 %p_Result_29_13, i50 %rem_next_V_13
+
+ST_4: tmp_1225 (189)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:187  %tmp_1225 = trunc i50 %p_0289_2_i_13 to i24
+
+ST_4: tmp_71 (191)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:189  %tmp_71 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1225, i2 %tmp_70)
+
+ST_4: p_Result_29_14 (192)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:190  %p_Result_29_14 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_13, i26 %tmp_71, i32 0, i32 25)
+
+ST_4: tmp_1226 (193)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:191  %tmp_1226 = trunc i25 %sqrt_int_2_4 to i23
+
+ST_4: p_Result_30_15_s (194)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:192  %p_Result_30_15_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1226, i2 1)
+
+ST_4: rem_next_V_14 (195)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:193  %rem_next_V_14 = sub i50 %p_Result_29_14, %p_Result_30_15_s
+
+ST_4: tmp_1227 (196)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_10)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:194  %tmp_1227 = trunc i25 %sqrt_int_2_4 to i24
+
+ST_4: tmp_1228 (197)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_10)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:195  %tmp_1228 = shl i25 %sqrt_int_2_4, 1
+
+ST_4: tmp_1229 (198)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:196  %tmp_1229 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_14, i32 25)
+
+ST_4: p_Result_33_10 (199)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_10)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:197  %p_Result_33_10 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1227, i1 true)
+
+ST_4: sqrt_int_2_10 (200)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:198  %sqrt_int_2_10 = select i1 %tmp_1229, i25 %tmp_1228, i25 %p_Result_33_10
+
+ST_4: p_0289_2_i_14 (201)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:199  %p_0289_2_i_14 = select i1 %tmp_1229, i50 %p_Result_29_14, i50 %rem_next_V_14
+
+ST_4: tmp_1230 (202)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:200  %tmp_1230 = trunc i50 %p_0289_2_i_14 to i24
+
+ST_4: tmp_76 (204)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:202  %tmp_76 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1230, i2 %tmp_75)
+
+ST_4: p_Result_29_15 (205)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:203  %p_Result_29_15 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_14, i26 %tmp_76, i32 0, i32 25)
+
+ST_4: tmp_1231 (206)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:204  %tmp_1231 = trunc i25 %sqrt_int_2_10 to i23
+
+ST_4: p_Result_30_16_s (207)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:205  %p_Result_30_16_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1231, i2 1)
+
+ST_4: rem_next_V_15 (208)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:206  %rem_next_V_15 = sub i50 %p_Result_29_15, %p_Result_30_16_s
+
+ST_4: tmp_1232 (209)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_11)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:207  %tmp_1232 = trunc i25 %sqrt_int_2_10 to i24
+
+ST_4: tmp_1233 (210)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_11)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:208  %tmp_1233 = shl i25 %sqrt_int_2_10, 1
+
+ST_4: tmp_1234 (211)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:209  %tmp_1234 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_15, i32 25)
+
+ST_4: p_Result_33_11 (212)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_11)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:210  %p_Result_33_11 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1232, i1 true)
+
+ST_4: sqrt_int_2_11 (213)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:211  %sqrt_int_2_11 = select i1 %tmp_1234, i25 %tmp_1233, i25 %p_Result_33_11
+
+ST_4: p_0289_2_i_15 (214)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:212  %p_0289_2_i_15 = select i1 %tmp_1234, i50 %p_Result_29_15, i50 %rem_next_V_15
+
+ST_4: tmp_1235 (215)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:213  %tmp_1235 = trunc i50 %p_0289_2_i_15 to i24
+
+ST_4: tmp_81 (217)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:215  %tmp_81 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1235, i2 %tmp_80)
+
+ST_4: p_Result_29_16 (218)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:216  %p_Result_29_16 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_15, i26 %tmp_81, i32 0, i32 25)
+
+ST_4: tmp_1236 (219)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:217  %tmp_1236 = trunc i25 %sqrt_int_2_11 to i23
+
+ST_4: p_Result_30_17_s (220)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:218  %p_Result_30_17_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1236, i2 1)
+
+ST_4: rem_next_V_16 (221)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:219  %rem_next_V_16 = sub i50 %p_Result_29_16, %p_Result_30_17_s
+
+ST_4: tmp_1237 (222)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_12)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:220  %tmp_1237 = trunc i25 %sqrt_int_2_11 to i24
+
+ST_4: tmp_1238 (223)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_12)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:221  %tmp_1238 = shl i25 %sqrt_int_2_11, 1
+
+ST_4: tmp_1239 (224)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:222  %tmp_1239 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_16, i32 25)
+
+ST_4: p_Result_33_12 (225)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_12)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:223  %p_Result_33_12 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1237, i1 true)
+
+ST_4: sqrt_int_2_12 (226)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:224  %sqrt_int_2_12 = select i1 %tmp_1239, i25 %tmp_1238, i25 %p_Result_33_12
+
+ST_4: p_0289_2_i_16 (227)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:225  %p_0289_2_i_16 = select i1 %tmp_1239, i50 %p_Result_29_16, i50 %rem_next_V_16
+
+ST_4: tmp_1240 (228)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:226  %tmp_1240 = trunc i50 %p_0289_2_i_16 to i24
+
+ST_4: tmp_86 (230)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:228  %tmp_86 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1240, i2 %tmp_85)
+
+ST_4: p_Result_29_17 (231)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:229  %p_Result_29_17 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_16, i26 %tmp_86, i32 0, i32 25)
+
+ST_4: tmp_1241 (232)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:230  %tmp_1241 = trunc i25 %sqrt_int_2_12 to i23
+
+ST_4: p_Result_30_18_s (233)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:231  %p_Result_30_18_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1241, i2 1)
+
+ST_4: rem_next_V_17 (234)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:232  %rem_next_V_17 = sub i50 %p_Result_29_17, %p_Result_30_18_s
+
+ST_4: tmp_1242 (235)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_13)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:233  %tmp_1242 = trunc i25 %sqrt_int_2_12 to i24
+
+ST_4: tmp_1243 (236)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_13)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:234  %tmp_1243 = shl i25 %sqrt_int_2_12, 1
+
+ST_4: tmp_1244 (237)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:235  %tmp_1244 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_17, i32 25)
+
+ST_4: p_Result_33_13 (238)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_13)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:236  %p_Result_33_13 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1242, i1 true)
+
+ST_4: sqrt_int_2_13 (239)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:237  %sqrt_int_2_13 = select i1 %tmp_1244, i25 %tmp_1243, i25 %p_Result_33_13
+
+ST_4: p_0289_2_i_17 (240)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:238  %p_0289_2_i_17 = select i1 %tmp_1244, i50 %p_Result_29_17, i50 %rem_next_V_17
+
+ST_4: tmp_1245 (241)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:239  %tmp_1245 = trunc i50 %p_0289_2_i_17 to i24
+
+ST_4: tmp_91 (243)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:241  %tmp_91 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1245, i2 %tmp_90)
+
+ST_4: p_Result_29_18 (244)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:242  %p_Result_29_18 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_17, i26 %tmp_91, i32 0, i32 25)
+
+ST_4: tmp_1246 (245)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:243  %tmp_1246 = trunc i25 %sqrt_int_2_13 to i23
+
+
+ <State 5>: 8.05ns
+ST_5: p_Result_30_19_s (246)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:244  %p_Result_30_19_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1246, i2 1)
+
+ST_5: rem_next_V_18 (247)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:245  %rem_next_V_18 = sub i50 %p_Result_29_18, %p_Result_30_19_s
+
+ST_5: tmp_1247 (248)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_14)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:246  %tmp_1247 = trunc i25 %sqrt_int_2_13 to i24
+
+ST_5: tmp_1248 (249)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_14)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:247  %tmp_1248 = shl i25 %sqrt_int_2_13, 1
+
+ST_5: tmp_1249 (250)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:248  %tmp_1249 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_18, i32 25)
+
+ST_5: p_Result_33_14 (251)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_14)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:249  %p_Result_33_14 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1247, i1 true)
+
+ST_5: sqrt_int_2_14 (252)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:250  %sqrt_int_2_14 = select i1 %tmp_1249, i25 %tmp_1248, i25 %p_Result_33_14
+
+ST_5: p_0289_2_i_18 (253)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:251  %p_0289_2_i_18 = select i1 %tmp_1249, i50 %p_Result_29_18, i50 %rem_next_V_18
+
+ST_5: tmp_1250 (254)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:252  %tmp_1250 = trunc i50 %p_0289_2_i_18 to i24
+
+ST_5: tmp_96 (256)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:254  %tmp_96 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1250, i2 %tmp_95)
+
+ST_5: p_Result_29_19 (257)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:255  %p_Result_29_19 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_18, i26 %tmp_96, i32 0, i32 25)
+
+ST_5: tmp_1251 (258)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:256  %tmp_1251 = trunc i25 %sqrt_int_2_14 to i23
+
+ST_5: p_Result_30_20_s (259)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:257  %p_Result_30_20_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1251, i2 1)
+
+ST_5: rem_next_V_19 (260)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:258  %rem_next_V_19 = sub i50 %p_Result_29_19, %p_Result_30_20_s
+
+ST_5: tmp_1252 (261)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_15)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:259  %tmp_1252 = trunc i25 %sqrt_int_2_14 to i24
+
+ST_5: tmp_1253 (262)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_15)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:260  %tmp_1253 = shl i25 %sqrt_int_2_14, 1
+
+ST_5: tmp_1254 (263)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:261  %tmp_1254 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_19, i32 25)
+
+ST_5: p_Result_33_15 (264)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_15)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:262  %p_Result_33_15 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1252, i1 true)
+
+ST_5: sqrt_int_2_15 (265)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:263  %sqrt_int_2_15 = select i1 %tmp_1254, i25 %tmp_1253, i25 %p_Result_33_15
+
+ST_5: p_0289_2_i_19 (266)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:264  %p_0289_2_i_19 = select i1 %tmp_1254, i50 %p_Result_29_19, i50 %rem_next_V_19
+
+ST_5: tmp_1255 (267)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:265  %tmp_1255 = trunc i50 %p_0289_2_i_19 to i24
+
+ST_5: tmp_101 (269)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:267  %tmp_101 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1255, i2 %tmp_100)
+
+ST_5: p_Result_29_20 (270)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:268  %p_Result_29_20 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_19, i26 %tmp_101, i32 0, i32 25)
+
+ST_5: tmp_1256 (271)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:269  %tmp_1256 = trunc i25 %sqrt_int_2_15 to i23
+
+ST_5: p_Result_30_21_s (272)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:270  %p_Result_30_21_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1256, i2 1)
+
+ST_5: rem_next_V_20 (273)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:271  %rem_next_V_20 = sub i50 %p_Result_29_20, %p_Result_30_21_s
+
+ST_5: tmp_1257 (274)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_16)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:272  %tmp_1257 = trunc i25 %sqrt_int_2_15 to i24
+
+ST_5: tmp_1258 (275)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_16)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:273  %tmp_1258 = shl i25 %sqrt_int_2_15, 1
+
+ST_5: tmp_1259 (276)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:274  %tmp_1259 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_20, i32 25)
+
+ST_5: p_Result_33_16 (277)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_16)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:275  %p_Result_33_16 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1257, i1 true)
+
+ST_5: sqrt_int_2_16 (278)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:276  %sqrt_int_2_16 = select i1 %tmp_1259, i25 %tmp_1258, i25 %p_Result_33_16
+
+ST_5: p_0289_2_i_20 (279)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:277  %p_0289_2_i_20 = select i1 %tmp_1259, i50 %p_Result_29_20, i50 %rem_next_V_20
+
+ST_5: tmp_1260 (280)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:278  %tmp_1260 = trunc i50 %p_0289_2_i_20 to i24
+
+ST_5: tmp_106 (282)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:280  %tmp_106 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1260, i2 %tmp_105)
+
+ST_5: p_Result_29_21 (283)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:281  %p_Result_29_21 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_20, i26 %tmp_106, i32 0, i32 25)
+
+ST_5: tmp_1261 (284)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:282  %tmp_1261 = trunc i25 %sqrt_int_2_16 to i23
+
+ST_5: p_Result_30_22_s (285)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:283  %p_Result_30_22_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1261, i2 1)
+
+ST_5: rem_next_V_21 (286)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:284  %rem_next_V_21 = sub i50 %p_Result_29_21, %p_Result_30_22_s
+
+ST_5: tmp_1262 (287)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_17)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:285  %tmp_1262 = trunc i25 %sqrt_int_2_16 to i24
+
+ST_5: tmp_1263 (288)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_17)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:286  %tmp_1263 = shl i25 %sqrt_int_2_16, 1
+
+ST_5: tmp_1264 (289)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:287  %tmp_1264 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_21, i32 25)
+
+ST_5: p_Result_33_17 (290)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_17)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:288  %p_Result_33_17 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1262, i1 true)
+
+ST_5: sqrt_int_2_17 (291)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:289  %sqrt_int_2_17 = select i1 %tmp_1264, i25 %tmp_1263, i25 %p_Result_33_17
+
+ST_5: p_0289_2_i_21 (292)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:290  %p_0289_2_i_21 = select i1 %tmp_1264, i50 %p_Result_29_21, i50 %rem_next_V_21
+
+ST_5: tmp_1265 (293)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:291  %tmp_1265 = trunc i50 %p_0289_2_i_21 to i24
+
+ST_5: tmp_111 (295)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:293  %tmp_111 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i2(i24 %tmp_1265, i2 %tmp_110)
+
+ST_5: p_Result_29_22 (296)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:294  %p_Result_29_22 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_21, i26 %tmp_111, i32 0, i32 25)
+
+ST_5: tmp_1266 (297)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:295  %tmp_1266 = trunc i25 %sqrt_int_2_17 to i23
+
+ST_5: p_Result_30_23_s (298)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:296  %p_Result_30_23_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1266, i2 1)
+
+ST_5: rem_next_V_22 (299)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:297  %rem_next_V_22 = sub i50 %p_Result_29_22, %p_Result_30_23_s
+
+ST_5: tmp_1267 (300)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_18)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:298  %tmp_1267 = trunc i25 %sqrt_int_2_17 to i24
+
+ST_5: tmp_1268 (301)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_18)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:299  %tmp_1268 = shl i25 %sqrt_int_2_17, 1
+
+ST_5: tmp_1269 (302)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:300  %tmp_1269 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_22, i32 25)
+
+ST_5: p_Result_33_18 (303)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node sqrt_int_2_18)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:301  %p_Result_33_18 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1267, i1 true)
+
+ST_5: sqrt_int_2_18 (304)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:302  %sqrt_int_2_18 = select i1 %tmp_1269, i25 %tmp_1268, i25 %p_Result_33_18
+
+ST_5: p_0289_2_i_22 (305)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:303  %p_0289_2_i_22 = select i1 %tmp_1269, i50 %p_Result_29_22, i50 %rem_next_V_22
+
+ST_5: tmp_1270 (306)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:304  %tmp_1270 = trunc i50 %p_0289_2_i_22 to i24
+
+ST_5: tmp_115 (307)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:305  %tmp_115 = call i26 @_ssdm_op_BitConcatenate.i26.i24.i1.i1(i24 %tmp_1270, i1 %tmp_1160, i1 false)
+
+ST_5: p_Result_29_23 (308)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:765->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:306  %p_Result_29_23 = call i50 @_ssdm_op_PartSet.i50.i50.i26.i32.i32(i50 %p_0289_2_i_22, i26 %tmp_115, i32 0, i32 25)
+
+ST_5: tmp_1271 (309)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:307  %tmp_1271 = trunc i25 %sqrt_int_2_18 to i23
+
+ST_5: p_Result_30_24_s (310)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:768->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:308  %p_Result_30_24_s = call i50 @_ssdm_op_BitConcatenate.i50.i25.i23.i2(i25 0, i23 %tmp_1271, i2 1)
+
+ST_5: rem_next_V_23 (311)  [1/1] 1.27ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:309  %rem_next_V_23 = sub i50 %p_Result_29_23, %p_Result_30_24_s
+
+ST_5: tmp_1272 (312)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node p_Val2_s)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:310  %tmp_1272 = trunc i25 %sqrt_int_2_18 to i24
+
+ST_5: tmp_1273 (313)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:776->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node p_Val2_s)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:311  %tmp_1273 = shl i25 %sqrt_int_2_18, 1
+
+ST_5: tmp_1274 (314)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node p_Val2_s)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:312  %tmp_1274 = call i1 @_ssdm_op_BitSelect.i1.i50.i32(i50 %rem_next_V_23, i32 25)
+
+ST_5: p_Result_33_19 (315)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:780->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661 (grouped into LUT with out node p_Val2_s)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:313  %p_Result_33_19 = call i25 @_ssdm_op_BitConcatenate.i25.i24.i1(i24 %tmp_1272, i1 true)
+
+ST_5: p_Val2_s (316)  [1/1] 0.07ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:81 (out node of the LUT)
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:314  %p_Val2_s = select i1 %tmp_1274, i25 %tmp_1273, i25 %p_Result_33_19
+
+ST_5: StgValue_321 (317)  [1/1] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:682
+_ZrsILi48ELb1EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit339_ifconv:315  ret i25 %p_Val2_s
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 8.05ns
+The critical path consists of the following:
+	wire read on port 'inputData_in_V_read' [2]  (0 ns)
+	'add' operation ('rem_next_V', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [6]  (1.27 ns)
+	'select' operation ('p_Result_29_0_rem_s', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [9]  (0.071 ns)
+	'sub' operation ('rem_next_V_1', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [16]  (1.27 ns)
+	'select' operation ('sqrt_int_2_1_v', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [20]  (0.071 ns)
+	'sub' operation ('rem_next_V_2', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [28]  (1.27 ns)
+	'select' operation ('sqrt_int_2_2_v', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [32]  (0.071 ns)
+	'sub' operation ('rem_next_V_3', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [40]  (1.27 ns)
+	'select' operation ('p_0289_2_i_3', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [45]  (0.071 ns)
+	'sub' operation ('rem_next_V_4', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [52]  (1.27 ns)
+	'select' operation ('sqrt_int_2_4_v', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [56]  (0.071 ns)
+	'sub' operation ('rem_next_V_5', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [64]  (1.27 ns)
+	'select' operation ('p_0289_2_i_5', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [71]  (0.071 ns)
+
+ <State 2>: 8.12ns
+The critical path consists of the following:
+	'select' operation ('sqrt_int_2_5', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [70]  (0.071 ns)
+	'sub' operation ('rem_next_V_6', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [78]  (1.27 ns)
+	'select' operation ('sqrt_int_2_6', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [83]  (0.071 ns)
+	'sub' operation ('rem_next_V_7', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [91]  (1.27 ns)
+	'select' operation ('sqrt_int_2_7', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [96]  (0.071 ns)
+	'sub' operation ('rem_next_V_8', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [104]  (1.27 ns)
+	'select' operation ('sqrt_int_2_8', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [109]  (0.071 ns)
+	'sub' operation ('rem_next_V_9', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [117]  (1.27 ns)
+	'select' operation ('p_0289_2_i_9', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [123]  (0.071 ns)
+	'sub' operation ('rem_next_V_s', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [130]  (1.27 ns)
+	'select' operation ('p_0289_2_i_s', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [136]  (0.071 ns)
+	'sub' operation ('rem_next_V_10', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [143]  (1.27 ns)
+	'select' operation ('sqrt_int_2_1', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [148]  (0.071 ns)
+
+ <State 3>: 1.34ns
+The critical path consists of the following:
+	'sub' operation ('rem_next_V_11', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [156]  (1.27 ns)
+	'select' operation ('p_0289_2_i_11', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [162]  (0.071 ns)
+
+ <State 4>: 8.12ns
+The critical path consists of the following:
+	'select' operation ('sqrt_int_2_2', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [161]  (0.071 ns)
+	'sub' operation ('rem_next_V_12', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [169]  (1.27 ns)
+	'select' operation ('p_0289_2_i_12', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [175]  (0.071 ns)
+	'sub' operation ('rem_next_V_13', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [182]  (1.27 ns)
+	'select' operation ('p_0289_2_i_13', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [188]  (0.071 ns)
+	'sub' operation ('rem_next_V_14', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [195]  (1.27 ns)
+	'select' operation ('p_0289_2_i_14', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [201]  (0.071 ns)
+	'sub' operation ('rem_next_V_15', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [208]  (1.27 ns)
+	'select' operation ('p_0289_2_i_15', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [214]  (0.071 ns)
+	'sub' operation ('rem_next_V_16', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [221]  (1.27 ns)
+	'select' operation ('p_0289_2_i_16', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [227]  (0.071 ns)
+	'sub' operation ('rem_next_V_17', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [234]  (1.27 ns)
+	'select' operation ('sqrt_int_2_13', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [239]  (0.071 ns)
+
+ <State 5>: 8.05ns
+The critical path consists of the following:
+	'sub' operation ('rem_next_V_18', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [247]  (1.27 ns)
+	'select' operation ('p_0289_2_i_18', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [253]  (0.071 ns)
+	'sub' operation ('rem_next_V_19', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [260]  (1.27 ns)
+	'select' operation ('p_0289_2_i_19', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [266]  (0.071 ns)
+	'sub' operation ('rem_next_V_20', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [273]  (1.27 ns)
+	'select' operation ('p_0289_2_i_20', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [279]  (0.071 ns)
+	'sub' operation ('rem_next_V_21', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [286]  (1.27 ns)
+	'select' operation ('p_0289_2_i_21', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [292]  (0.071 ns)
+	'sub' operation ('rem_next_V_22', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [299]  (1.27 ns)
+	'select' operation ('p_0289_2_i_22', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:778->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [305]  (0.071 ns)
+	'sub' operation ('rem_next_V_23', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:771->/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:661) [311]  (1.27 ns)
+	'select' operation ('__Val2__', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic.h:81) [316]  (0.071 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

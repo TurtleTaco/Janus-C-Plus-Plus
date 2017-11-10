@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="astro.cpp" path="/home/linsun/XilinxLab/astroCPP/astro.cpp"/>
+    <originFiles name="astro.hpp" path="/home/linsun/XilinxLab/astroCPP/astro.hpp"/>
+  </source>
+  <testbench>
+    <originFiles name="astro_test.cpp" path="/home/linsun/XilinxLab/astroCPP/astro_test.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

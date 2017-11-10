@@ -1,0 +1,421 @@
+
+
+================================================================
+== Vivado HLS Report for 'astroSim'
+================================================================
+* Date:           Fri Nov 10 12:19:27 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        astroSim
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffve1924-3-e-es2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      9.21|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  276336|  276336|  276337|  276337|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------+-----------+-----+-----+-----+-----+----------+
+        |                           |           |  Latency  |  Interval | Pipeline |
+        |          Instance         |   Module  | min | max | min | max |   Type   |
+        +---------------------------+-----------+-----+-----+-----+-----+----------+
+        |grp_gravity_fu_844         |gravity    |   41|   41|    6|    6| function |
+        |drift_ret1_drift_fu_956    |drift      |    0|    0|    1|    1| function |
+        |drift_ret2_drift_fu_1014   |drift      |    0|    0|    1|    1| function |
+        |drift_ret3_drift_fu_1045   |drift      |    0|    0|    1|    1| function |
+        |drift_ret4_drift_fu_1076   |drift      |    0|    0|    1|    1| function |
+        |drift_ret5_drift_fu_1107   |drift      |    0|    0|    1|    1| function |
+        |drift_ret6_drift_fu_1138   |drift      |    0|    0|    1|    1| function |
+        |drift_ret7_drift_fu_1169   |drift      |    0|    0|    1|    1| function |
+        |drift_ret8_drift_fu_1200   |drift      |    0|    0|    1|    1| function |
+        |drift_ret9_drift_fu_1231   |drift      |    0|    0|    1|    1| function |
+        |drift_ret10_drift_fu_1262  |drift      |    0|    0|    1|    1| function |
+        |drift_ret11_drift_fu_1293  |drift      |    0|    0|    1|    1| function |
+        |drift_ret12_drift_fu_1324  |drift      |    0|    0|    1|    1| function |
+        |drift_ret13_drift_fu_1355  |drift      |    0|    0|    1|    1| function |
+        |drift_ret14_drift_fu_1386  |drift      |    0|    0|    1|    1| function |
+        |drift_ret15_drift_fu_1417  |drift      |    0|    0|    1|    1| function |
+        |drift_ret16_drift_fu_1448  |drift      |    0|    0|    1|    1| function |
+        |drift_ret17_drift_fu_1479  |drift      |    0|    0|    1|    1| function |
+        |drift_ret18_drift_fu_1510  |drift      |    0|    0|    1|    1| function |
+        |drift_ret_drift_fu_1541    |drift      |    0|    0|    1|    1| function |
+        |drift_ret19_drift_fu_1572  |drift      |    0|    0|    1|    1| function |
+        |grp_to_double_fu_1603      |to_double  |    0|    0|    1|    1| function |
+        +---------------------------+-----------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        +----------+--------+--------+----------+-----------+-----------+------+----------+
+        |          |     Latency     | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min  |   max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+--------+--------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |       3|       3|         1|          -|          -|     3|    no    |
+        |- LOOP_X  |  276320|  276320|       440|          -|          -|   628|    no    |
+        |- Loop 3  |       9|       9|         1|          1|          1|     9|    yes   |
+        +----------+--------+--------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+---------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|    FF   |   LUT  | URAM|
++-----------------+---------+-------+---------+--------+-----+
+|DSP              |        -|      -|        -|       -|    -|
+|Expression       |        -|      -|        0|      79|    -|
+|FIFO             |        -|      -|        -|       -|    -|
+|Instance         |        -|   1489|   108476|  194600|    -|
+|Memory           |        -|      -|        -|       -|    -|
+|Multiplexer      |        -|      -|        -|    2195|    -|
+|Register         |        -|      -|     4772|       -|    -|
++-----------------+---------+-------+---------+--------+-----+
+|Total            |        0|   1489|   113248|  196874|    0|
++-----------------+---------+-------+---------+--------+-----+
+|Available        |     1968|   1968|  1045440|  522720|  128|
++-----------------+---------+-------+---------+--------+-----+
+|Utilization (%)  |        0|     75|       10|      37|    0|
++-----------------+---------+-------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------+----------------------+---------+-------+-------+--------+
+    |          Instance         |        Module        | BRAM_18K| DSP48E|   FF  |   LUT  |
+    +---------------------------+----------------------+---------+-------+-------+--------+
+    |astroSim_mux_164_fYi_U244  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U245  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U246  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U247  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U248  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U249  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U250  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U251  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U252  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U253  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U254  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U255  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U256  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U257  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U258  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U259  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U260  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U261  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U262  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U263  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U264  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U265  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U266  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_164_fYi_U267  |astroSim_mux_164_fYi  |        0|      0|    278|      65|
+    |astroSim_mux_94_2g8j_U268  |astroSim_mux_94_2g8j  |        0|      0|    278|      65|
+    |astroSim_mux_94_2g8j_U269  |astroSim_mux_94_2g8j  |        0|      0|    278|      65|
+    |astroSim_mux_94_2g8j_U270  |astroSim_mux_94_2g8j  |        0|      0|    278|      65|
+    |astroSim_mux_94_2g8j_U271  |astroSim_mux_94_2g8j  |        0|      0|    278|      65|
+    |astroSim_mux_94_2g8j_U272  |astroSim_mux_94_2g8j  |        0|      0|    278|      65|
+    |astroSim_mux_94_2g8j_U273  |astroSim_mux_94_2g8j  |        0|      0|    278|      65|
+    |astroSim_mux_94_2g8j_U274  |astroSim_mux_94_2g8j  |        0|      0|    278|      65|
+    |astroSim_mux_94_2g8j_U275  |astroSim_mux_94_2g8j  |        0|      0|    278|      65|
+    |astroSim_mux_94_2g8j_U276  |astroSim_mux_94_2g8j  |        0|      0|    278|      65|
+    |astroSim_mux_94_2g8j_U277  |astroSim_mux_94_2g8j  |        0|      0|    278|      65|
+    |drift_ret1_drift_fu_956    |drift                 |        0|      0|      0|       0|
+    |drift_ret2_drift_fu_1014   |drift                 |        0|      0|      0|       0|
+    |drift_ret3_drift_fu_1045   |drift                 |        0|      0|      0|       0|
+    |drift_ret4_drift_fu_1076   |drift                 |        0|      0|      0|       0|
+    |drift_ret5_drift_fu_1107   |drift                 |        0|      0|      0|       0|
+    |drift_ret6_drift_fu_1138   |drift                 |        0|      0|      0|       0|
+    |drift_ret7_drift_fu_1169   |drift                 |        0|      0|      0|       0|
+    |drift_ret8_drift_fu_1200   |drift                 |        0|      0|      0|       0|
+    |drift_ret9_drift_fu_1231   |drift                 |        0|      0|      0|       0|
+    |drift_ret10_drift_fu_1262  |drift                 |        0|      0|      0|       0|
+    |drift_ret11_drift_fu_1293  |drift                 |        0|      0|      0|       0|
+    |drift_ret12_drift_fu_1324  |drift                 |        0|      0|      0|       0|
+    |drift_ret13_drift_fu_1355  |drift                 |        0|      0|      0|       0|
+    |drift_ret14_drift_fu_1386  |drift                 |        0|      0|      0|       0|
+    |drift_ret15_drift_fu_1417  |drift                 |        0|      0|      0|       0|
+    |drift_ret16_drift_fu_1448  |drift                 |        0|      0|      0|       0|
+    |drift_ret17_drift_fu_1479  |drift                 |        0|      0|      0|       0|
+    |drift_ret18_drift_fu_1510  |drift                 |        0|      0|      0|       0|
+    |drift_ret_drift_fu_1541    |drift                 |        0|      0|      0|       0|
+    |drift_ret19_drift_fu_1572  |drift                 |        0|      0|      0|       0|
+    |grp_gravity_fu_844         |gravity               |        0|   1489|  99024|  192390|
+    |grp_to_double_fu_1603      |to_double             |        0|      0|      0|       0|
+    +---------------------------+----------------------+---------+-------+-------+--------+
+    |Total                      |                      |        0|   1489| 108476|  194600|
+    +---------------------------+----------------------+---------+-------+-------+--------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |i_0_t_fu_1949_p2        |     +    |      0|  0|  12|           4|           1|
+    |i_1_t_fu_2297_p2        |     +    |      0|  0|  12|           4|           2|
+    |i_2_fu_2645_p2          |     +    |      0|  0|  12|           4|           2|
+    |i_fu_5342_p2            |     +    |      0|  0|  12|           4|           1|
+    |t_1_9_fu_5330_p2        |     +    |      0|  0|  20|          13|           4|
+    |exitcond3_4_fu_2651_p2  |   icmp   |      0|  0|   7|          13|          12|
+    |exitcond_fu_5336_p2     |   icmp   |      0|  0|   2|           4|           4|
+    |tmp_fu_1715_p2          |   icmp   |      0|  0|   2|           4|           4|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |Total                   |          |      0|  0|  79|          50|          30|
+    +------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------+------+-----------+-----+-----------+
+    |          Name         |  LUT | Input Size| Bits| Total Bits|
+    +-----------------------+------+-----------+-----+-----------+
+    |ap_NS_fsm              |  1925|        445|    1|        445|
+    |i5_reg_833             |     9|          2|    4|          8|
+    |i_0_i_reg_538          |     9|          2|    4|          8|
+    |p_int_x_V_0_2_reg_811  |     9|          2|   27|         54|
+    |p_int_x_V_1_2_reg_801  |     9|          2|   27|         54|
+    |p_int_x_V_2_2_reg_791  |     9|          2|   27|         54|
+    |p_int_x_V_3_2_reg_780  |     9|          2|   27|         54|
+    |p_int_x_V_4_2_reg_770  |     9|          2|   27|         54|
+    |p_int_x_V_5_2_reg_760  |     9|          2|   27|         54|
+    |p_int_x_V_6_2_reg_749  |     9|          2|   27|         54|
+    |p_int_x_V_7_2_reg_739  |     9|          2|   27|         54|
+    |p_int_x_V_8_2_reg_729  |     9|          2|   27|         54|
+    |p_int_y_V_0_2_reg_719  |     9|          2|   27|         54|
+    |p_int_y_V_1_2_reg_709  |     9|          2|   27|         54|
+    |p_int_y_V_2_2_reg_699  |     9|          2|   27|         54|
+    |p_int_y_V_3_2_reg_689  |     9|          2|   27|         54|
+    |p_int_y_V_4_2_reg_679  |     9|          2|   27|         54|
+    |p_int_y_V_5_2_reg_669  |     9|          2|   27|         54|
+    |p_int_y_V_6_2_reg_659  |     9|          2|   27|         54|
+    |p_int_y_V_7_2_reg_649  |     9|          2|   27|         54|
+    |p_int_y_V_8_2_reg_639  |     9|          2|   27|         54|
+    |p_int_z_V_0_2_reg_629  |     9|          2|   27|         54|
+    |p_int_z_V_1_2_reg_619  |     9|          2|   27|         54|
+    |p_int_z_V_2_2_reg_609  |     9|          2|   27|         54|
+    |p_int_z_V_3_2_reg_599  |     9|          2|   27|         54|
+    |p_int_z_V_4_2_reg_589  |     9|          2|   27|         54|
+    |p_int_z_V_5_2_reg_579  |     9|          2|   27|         54|
+    |p_int_z_V_6_2_reg_569  |     9|          2|   27|         54|
+    |p_int_z_V_7_2_reg_559  |     9|          2|   27|         54|
+    |p_int_z_V_8_2_reg_549  |     9|          2|   27|         54|
+    |t_reg_822              |     9|          2|   13|         26|
+    +-----------------------+------+-----------+-----+-----------+
+    |Total                  |  2195|        505|  751|       1945|
+    +-----------------------+------+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------+-----+----+-----+-----------+
+    |                Name                |  FF | LUT| Bits| Const Bits|
+    +------------------------------------+-----+----+-----+-----------+
+    |ap_CS_fsm                           |  444|   0|  444|          0|
+    |ap_reg_grp_gravity_fu_844_ap_start  |    1|   0|    1|          0|
+    |i5_reg_833                          |    4|   0|    4|          0|
+    |i_0_i_reg_538                       |    4|   0|    4|          0|
+    |p_ax_V_0                            |   27|   0|   27|          0|
+    |p_ax_V_1                            |   27|   0|   27|          0|
+    |p_ax_V_2                            |   27|   0|   27|          0|
+    |p_ax_V_3                            |   27|   0|   27|          0|
+    |p_ax_V_4                            |   27|   0|   27|          0|
+    |p_ax_V_5                            |   27|   0|   27|          0|
+    |p_ax_V_6                            |   27|   0|   27|          0|
+    |p_ax_V_7                            |   27|   0|   27|          0|
+    |p_ax_V_8                            |   27|   0|   27|          0|
+    |p_ay_V_0                            |   27|   0|   27|          0|
+    |p_ay_V_1                            |   27|   0|   27|          0|
+    |p_ay_V_2                            |   27|   0|   27|          0|
+    |p_ay_V_3                            |   27|   0|   27|          0|
+    |p_ay_V_4                            |   27|   0|   27|          0|
+    |p_ay_V_5                            |   27|   0|   27|          0|
+    |p_ay_V_6                            |   27|   0|   27|          0|
+    |p_ay_V_7                            |   27|   0|   27|          0|
+    |p_ay_V_8                            |   27|   0|   27|          0|
+    |p_az_V_0                            |   27|   0|   27|          0|
+    |p_az_V_1                            |   27|   0|   27|          0|
+    |p_az_V_2                            |   27|   0|   27|          0|
+    |p_az_V_3                            |   27|   0|   27|          0|
+    |p_az_V_4                            |   27|   0|   27|          0|
+    |p_az_V_5                            |   27|   0|   27|          0|
+    |p_az_V_6                            |   27|   0|   27|          0|
+    |p_az_V_7                            |   27|   0|   27|          0|
+    |p_az_V_8                            |   27|   0|   27|          0|
+    |p_int_0_x_V_19_reg_6074             |   27|   0|   27|          0|
+    |p_int_0_y_V_19_reg_6119             |   27|   0|   27|          0|
+    |p_int_0_z_V_19_reg_6164             |   27|   0|   27|          0|
+    |p_int_1_x_V_19_reg_6079             |   27|   0|   27|          0|
+    |p_int_1_y_V_19_reg_6124             |   27|   0|   27|          0|
+    |p_int_1_z_V_19_reg_6169             |   27|   0|   27|          0|
+    |p_int_2_x_V_19_reg_6084             |   27|   0|   27|          0|
+    |p_int_2_y_V_19_reg_6129             |   27|   0|   27|          0|
+    |p_int_2_z_V_19_reg_6174             |   27|   0|   27|          0|
+    |p_int_3_x_V_19_reg_6089             |   27|   0|   27|          0|
+    |p_int_3_y_V_19_reg_6134             |   27|   0|   27|          0|
+    |p_int_3_z_V_19_reg_6179             |   27|   0|   27|          0|
+    |p_int_4_x_V_19_reg_6094             |   27|   0|   27|          0|
+    |p_int_4_y_V_19_reg_6139             |   27|   0|   27|          0|
+    |p_int_4_z_V_19_reg_6184             |   27|   0|   27|          0|
+    |p_int_5_x_V_19_reg_6099             |   27|   0|   27|          0|
+    |p_int_5_y_V_19_reg_6144             |   27|   0|   27|          0|
+    |p_int_5_z_V_19_reg_6189             |   27|   0|   27|          0|
+    |p_int_6_x_V_19_reg_6104             |   27|   0|   27|          0|
+    |p_int_6_y_V_19_reg_6149             |   27|   0|   27|          0|
+    |p_int_6_z_V_19_reg_6194             |   27|   0|   27|          0|
+    |p_int_7_x_V_19_reg_6109             |   27|   0|   27|          0|
+    |p_int_7_y_V_19_reg_6154             |   27|   0|   27|          0|
+    |p_int_7_z_V_19_reg_6199             |   27|   0|   27|          0|
+    |p_int_8_x_V_19_reg_6114             |   27|   0|   27|          0|
+    |p_int_8_y_V_19_reg_6159             |   27|   0|   27|          0|
+    |p_int_8_z_V_19_reg_6204             |   27|   0|   27|          0|
+    |p_int_x_V_0_2_reg_811               |   27|   0|   27|          0|
+    |p_int_x_V_1_2_reg_801               |   27|   0|   27|          0|
+    |p_int_x_V_1_reg_526                 |   27|   0|   27|          0|
+    |p_int_x_V_2_2_reg_791               |   27|   0|   27|          0|
+    |p_int_x_V_2_reg_514                 |   27|   0|   27|          0|
+    |p_int_x_V_3_2_reg_780               |   27|   0|   27|          0|
+    |p_int_x_V_4_2_reg_770               |   27|   0|   27|          0|
+    |p_int_x_V_4_reg_502                 |   27|   0|   27|          0|
+    |p_int_x_V_5_2_reg_760               |   27|   0|   27|          0|
+    |p_int_x_V_5_reg_490                 |   27|   0|   27|          0|
+    |p_int_x_V_6_2_reg_749               |   27|   0|   27|          0|
+    |p_int_x_V_7_2_reg_739               |   27|   0|   27|          0|
+    |p_int_x_V_7_reg_478                 |   27|   0|   27|          0|
+    |p_int_x_V_8_2_reg_729               |   27|   0|   27|          0|
+    |p_int_x_V_8_reg_466                 |   27|   0|   27|          0|
+    |p_int_y_V_0_2_reg_719               |   27|   0|   27|          0|
+    |p_int_y_V_1_2_reg_709               |   27|   0|   27|          0|
+    |p_int_y_V_1_reg_442                 |   27|   0|   27|          0|
+    |p_int_y_V_2_2_reg_699               |   27|   0|   27|          0|
+    |p_int_y_V_2_reg_430                 |   27|   0|   27|          0|
+    |p_int_y_V_3_2_reg_689               |   27|   0|   27|          0|
+    |p_int_y_V_3_reg_418                 |   27|   0|   27|          0|
+    |p_int_y_V_4_2_reg_679               |   27|   0|   27|          0|
+    |p_int_y_V_4_reg_406                 |   27|   0|   27|          0|
+    |p_int_y_V_5_2_reg_669               |   27|   0|   27|          0|
+    |p_int_y_V_5_reg_394                 |   27|   0|   27|          0|
+    |p_int_y_V_6_2_reg_659               |   27|   0|   27|          0|
+    |p_int_y_V_6_reg_382                 |   27|   0|   27|          0|
+    |p_int_y_V_7_2_reg_649               |   27|   0|   27|          0|
+    |p_int_y_V_7_reg_370                 |   27|   0|   27|          0|
+    |p_int_y_V_8_2_reg_639               |   27|   0|   27|          0|
+    |p_int_y_V_8_reg_358                 |   27|   0|   27|          0|
+    |p_int_y_V_reg_454                   |   27|   0|   27|          0|
+    |p_int_z_V_0_2_reg_629               |   27|   0|   27|          0|
+    |p_int_z_V_1_2_reg_619               |   27|   0|   27|          0|
+    |p_int_z_V_1_reg_334                 |   27|   0|   27|          0|
+    |p_int_z_V_2_2_reg_609               |   27|   0|   27|          0|
+    |p_int_z_V_2_reg_322                 |   27|   0|   27|          0|
+    |p_int_z_V_3_2_reg_599               |   27|   0|   27|          0|
+    |p_int_z_V_3_reg_310                 |   27|   0|   27|          0|
+    |p_int_z_V_4_2_reg_589               |   27|   0|   27|          0|
+    |p_int_z_V_4_reg_298                 |   27|   0|   27|          0|
+    |p_int_z_V_5_2_reg_579               |   27|   0|   27|          0|
+    |p_int_z_V_5_reg_286                 |   27|   0|   27|          0|
+    |p_int_z_V_6_2_reg_569               |   27|   0|   27|          0|
+    |p_int_z_V_6_reg_274                 |   27|   0|   27|          0|
+    |p_int_z_V_7_2_reg_559               |   27|   0|   27|          0|
+    |p_int_z_V_7_reg_262                 |   27|   0|   27|          0|
+    |p_int_z_V_8_2_reg_549               |   27|   0|   27|          0|
+    |p_int_z_V_8_reg_250                 |   27|   0|   27|          0|
+    |p_int_z_V_reg_346                   |   27|   0|   27|          0|
+    |p_vx_V_0                            |   27|   0|   27|          0|
+    |p_vx_V_1                            |   27|   0|   27|          0|
+    |p_vx_V_2                            |   27|   0|   27|          0|
+    |p_vx_V_3                            |   27|   0|   27|          0|
+    |p_vx_V_4                            |   27|   0|   27|          0|
+    |p_vx_V_5                            |   27|   0|   27|          0|
+    |p_vx_V_6                            |   27|   0|   27|          0|
+    |p_vx_V_7                            |   27|   0|   27|          0|
+    |p_vx_V_8                            |   27|   0|   27|          0|
+    |p_vy_V_0                            |   27|   0|   27|          0|
+    |p_vy_V_1                            |   27|   0|   27|          0|
+    |p_vy_V_2                            |   27|   0|   27|          0|
+    |p_vy_V_3                            |   27|   0|   27|          0|
+    |p_vy_V_4                            |   27|   0|   27|          0|
+    |p_vy_V_5                            |   27|   0|   27|          0|
+    |p_vy_V_6                            |   27|   0|   27|          0|
+    |p_vy_V_7                            |   27|   0|   27|          0|
+    |p_vy_V_8                            |   27|   0|   27|          0|
+    |p_vz_V_0                            |   27|   0|   27|          0|
+    |p_vz_V_1                            |   27|   0|   27|          0|
+    |p_vz_V_2                            |   27|   0|   27|          0|
+    |p_vz_V_3                            |   27|   0|   27|          0|
+    |p_vz_V_4                            |   27|   0|   27|          0|
+    |p_vz_V_5                            |   27|   0|   27|          0|
+    |p_vz_V_6                            |   27|   0|   27|          0|
+    |p_vz_V_7                            |   27|   0|   27|          0|
+    |p_vz_V_8                            |   27|   0|   27|          0|
+    |p_x_V_0                             |   27|   0|   27|          0|
+    |p_x_V_1                             |   27|   0|   27|          0|
+    |p_x_V_2                             |   27|   0|   27|          0|
+    |p_x_V_3                             |   27|   0|   27|          0|
+    |p_x_V_4                             |   27|   0|   27|          0|
+    |p_x_V_5                             |   27|   0|   27|          0|
+    |p_x_V_6                             |   27|   0|   27|          0|
+    |p_x_V_7                             |   27|   0|   27|          0|
+    |p_x_V_8                             |   27|   0|   27|          0|
+    |p_y_V_0                             |   27|   0|   27|          0|
+    |p_y_V_1                             |   27|   0|   27|          0|
+    |p_y_V_2                             |   27|   0|   27|          0|
+    |p_y_V_3                             |   27|   0|   27|          0|
+    |p_y_V_4                             |   27|   0|   27|          0|
+    |p_y_V_5                             |   27|   0|   27|          0|
+    |p_y_V_6                             |   27|   0|   27|          0|
+    |p_y_V_7                             |   27|   0|   27|          0|
+    |p_y_V_8                             |   27|   0|   27|          0|
+    |p_z_V_0                             |   27|   0|   27|          0|
+    |p_z_V_1                             |   27|   0|   27|          0|
+    |p_z_V_2                             |   27|   0|   27|          0|
+    |p_z_V_3                             |   27|   0|   27|          0|
+    |p_z_V_4                             |   27|   0|   27|          0|
+    |p_z_V_5                             |   27|   0|   27|          0|
+    |p_z_V_6                             |   27|   0|   27|          0|
+    |p_z_V_7                             |   27|   0|   27|          0|
+    |p_z_V_8                             |   27|   0|   27|          0|
+    |t_1_9_reg_6209                      |   13|   0|   13|          0|
+    |t_reg_822                           |   13|   0|   13|          0|
+    +------------------------------------+-----+----+-----+-----------+
+    |Total                               | 4772|   0| 4772|          0|
+    +------------------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------+-----+-----+------------+--------------+--------------+
+|    RTL Ports    | Dir | Bits|  Protocol  | Source Object|    C Type    |
++-----------------+-----+-----+------------+--------------+--------------+
+|ap_clk           |  in |    1| ap_ctrl_hs |   astroSim   | return value |
+|ap_rst           |  in |    1| ap_ctrl_hs |   astroSim   | return value |
+|ap_start         |  in |    1| ap_ctrl_hs |   astroSim   | return value |
+|ap_done          | out |    1| ap_ctrl_hs |   astroSim   | return value |
+|ap_idle          | out |    1| ap_ctrl_hs |   astroSim   | return value |
+|ap_ready         | out |    1| ap_ctrl_hs |   astroSim   | return value |
+|result_address0  | out |    4|  ap_memory |    result    |     array    |
+|result_ce0       | out |    1|  ap_memory |    result    |     array    |
+|result_we0       | out |    1|  ap_memory |    result    |     array    |
+|result_d0        | out |  270|  ap_memory |    result    |     array    |
++-----------------+-----+-----+------------+--------------+--------------+
+

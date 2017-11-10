@@ -1,0 +1,271 @@
+
+
+================================================================
+== Vivado HLS Report for 'to_double'
+================================================================
+* Date:           Fri Nov 10 12:18:15 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        astroSim
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffve1924-3-e-es2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      0.00|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 1
+* Pipeline: 1
+  Pipeline-0: II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: StgValue_2 (55)  [1/1] 0.00ns  loc: astro.cpp:87
+:0  store i27 0, i27* @p_x_V_0, align 16
+
+ST_1: StgValue_3 (56)  [1/1] 0.00ns  loc: astro.cpp:88
+:1  store i27 0, i27* @p_y_V_0, align 16
+
+ST_1: StgValue_4 (57)  [1/1] 0.00ns  loc: astro.cpp:89
+:2  store i27 0, i27* @p_z_V_0, align 16
+
+ST_1: StgValue_5 (58)  [1/1] 0.00ns  loc: astro.cpp:90
+:3  store i27 0, i27* @p_vx_V_0, align 16
+
+ST_1: StgValue_6 (59)  [1/1] 0.00ns  loc: astro.cpp:91
+:4  store i27 0, i27* @p_vy_V_0, align 16
+
+ST_1: StgValue_7 (60)  [1/1] 0.00ns  loc: astro.cpp:92
+:5  store i27 0, i27* @p_vz_V_0, align 16
+
+ST_1: StgValue_8 (61)  [1/1] 0.00ns  loc: astro.cpp:87
+:6  store i27 0, i27* @p_x_V_1, align 8
+
+ST_1: StgValue_9 (62)  [1/1] 0.00ns  loc: astro.cpp:88
+:7  store i27 0, i27* @p_y_V_1, align 4
+
+ST_1: StgValue_10 (63)  [1/1] 0.00ns  loc: astro.cpp:89
+:8  store i27 0, i27* @p_z_V_1, align 8
+
+ST_1: StgValue_11 (64)  [1/1] 0.00ns  loc: astro.cpp:90
+:9  store i27 0, i27* @p_vx_V_1, align 4
+
+ST_1: StgValue_12 (65)  [1/1] 0.00ns  loc: astro.cpp:91
+:10  store i27 0, i27* @p_vy_V_1, align 8
+
+ST_1: StgValue_13 (66)  [1/1] 0.00ns  loc: astro.cpp:92
+:11  store i27 0, i27* @p_vz_V_1, align 4
+
+ST_1: StgValue_14 (67)  [1/1] 0.00ns  loc: astro.cpp:87
+:12  store i27 0, i27* @p_x_V_2, align 8
+
+ST_1: StgValue_15 (68)  [1/1] 0.00ns  loc: astro.cpp:88
+:13  store i27 0, i27* @p_y_V_2, align 8
+
+ST_1: StgValue_16 (69)  [1/1] 0.00ns  loc: astro.cpp:89
+:14  store i27 0, i27* @p_z_V_2, align 8
+
+ST_1: StgValue_17 (70)  [1/1] 0.00ns  loc: astro.cpp:90
+:15  store i27 0, i27* @p_vx_V_2, align 8
+
+ST_1: StgValue_18 (71)  [1/1] 0.00ns  loc: astro.cpp:91
+:16  store i27 0, i27* @p_vy_V_2, align 8
+
+ST_1: StgValue_19 (72)  [1/1] 0.00ns  loc: astro.cpp:92
+:17  store i27 0, i27* @p_vz_V_2, align 8
+
+ST_1: StgValue_20 (73)  [1/1] 0.00ns  loc: astro.cpp:87
+:18  store i27 0, i27* @p_x_V_3, align 8
+
+ST_1: StgValue_21 (74)  [1/1] 0.00ns  loc: astro.cpp:88
+:19  store i27 0, i27* @p_y_V_3, align 4
+
+ST_1: StgValue_22 (75)  [1/1] 0.00ns  loc: astro.cpp:89
+:20  store i27 0, i27* @p_z_V_3, align 8
+
+ST_1: StgValue_23 (76)  [1/1] 0.00ns  loc: astro.cpp:90
+:21  store i27 0, i27* @p_vx_V_3, align 4
+
+ST_1: StgValue_24 (77)  [1/1] 0.00ns  loc: astro.cpp:91
+:22  store i27 0, i27* @p_vy_V_3, align 8
+
+ST_1: StgValue_25 (78)  [1/1] 0.00ns  loc: astro.cpp:92
+:23  store i27 0, i27* @p_vz_V_3, align 4
+
+ST_1: StgValue_26 (79)  [1/1] 0.00ns  loc: astro.cpp:87
+:24  store i27 0, i27* @p_x_V_4, align 16
+
+ST_1: StgValue_27 (80)  [1/1] 0.00ns  loc: astro.cpp:88
+:25  store i27 0, i27* @p_y_V_4, align 16
+
+ST_1: StgValue_28 (81)  [1/1] 0.00ns  loc: astro.cpp:89
+:26  store i27 0, i27* @p_z_V_4, align 16
+
+ST_1: StgValue_29 (82)  [1/1] 0.00ns  loc: astro.cpp:90
+:27  store i27 0, i27* @p_vx_V_4, align 16
+
+ST_1: StgValue_30 (83)  [1/1] 0.00ns  loc: astro.cpp:91
+:28  store i27 0, i27* @p_vy_V_4, align 16
+
+ST_1: StgValue_31 (84)  [1/1] 0.00ns  loc: astro.cpp:92
+:29  store i27 0, i27* @p_vz_V_4, align 16
+
+ST_1: StgValue_32 (85)  [1/1] 0.00ns  loc: astro.cpp:87
+:30  store i27 0, i27* @p_x_V_5, align 8
+
+ST_1: StgValue_33 (86)  [1/1] 0.00ns  loc: astro.cpp:88
+:31  store i27 0, i27* @p_y_V_5, align 4
+
+ST_1: StgValue_34 (87)  [1/1] 0.00ns  loc: astro.cpp:89
+:32  store i27 0, i27* @p_z_V_5, align 8
+
+ST_1: StgValue_35 (88)  [1/1] 0.00ns  loc: astro.cpp:90
+:33  store i27 0, i27* @p_vx_V_5, align 4
+
+ST_1: StgValue_36 (89)  [1/1] 0.00ns  loc: astro.cpp:91
+:34  store i27 0, i27* @p_vy_V_5, align 8
+
+ST_1: StgValue_37 (90)  [1/1] 0.00ns  loc: astro.cpp:92
+:35  store i27 0, i27* @p_vz_V_5, align 4
+
+ST_1: StgValue_38 (91)  [1/1] 0.00ns  loc: astro.cpp:87
+:36  store i27 0, i27* @p_x_V_6, align 8
+
+ST_1: StgValue_39 (92)  [1/1] 0.00ns  loc: astro.cpp:88
+:37  store i27 0, i27* @p_y_V_6, align 8
+
+ST_1: StgValue_40 (93)  [1/1] 0.00ns  loc: astro.cpp:89
+:38  store i27 0, i27* @p_z_V_6, align 8
+
+ST_1: StgValue_41 (94)  [1/1] 0.00ns  loc: astro.cpp:90
+:39  store i27 0, i27* @p_vx_V_6, align 8
+
+ST_1: StgValue_42 (95)  [1/1] 0.00ns  loc: astro.cpp:91
+:40  store i27 0, i27* @p_vy_V_6, align 8
+
+ST_1: StgValue_43 (96)  [1/1] 0.00ns  loc: astro.cpp:92
+:41  store i27 0, i27* @p_vz_V_6, align 8
+
+ST_1: StgValue_44 (97)  [1/1] 0.00ns  loc: astro.cpp:87
+:42  store i27 0, i27* @p_x_V_7, align 8
+
+ST_1: StgValue_45 (98)  [1/1] 0.00ns  loc: astro.cpp:88
+:43  store i27 0, i27* @p_y_V_7, align 4
+
+ST_1: StgValue_46 (99)  [1/1] 0.00ns  loc: astro.cpp:89
+:44  store i27 0, i27* @p_z_V_7, align 8
+
+ST_1: StgValue_47 (100)  [1/1] 0.00ns  loc: astro.cpp:90
+:45  store i27 0, i27* @p_vx_V_7, align 4
+
+ST_1: StgValue_48 (101)  [1/1] 0.00ns  loc: astro.cpp:91
+:46  store i27 0, i27* @p_vy_V_7, align 8
+
+ST_1: StgValue_49 (102)  [1/1] 0.00ns  loc: astro.cpp:92
+:47  store i27 0, i27* @p_vz_V_7, align 4
+
+ST_1: StgValue_50 (103)  [1/1] 0.00ns  loc: astro.cpp:87
+:48  store i27 0, i27* @p_x_V_8, align 16
+
+ST_1: StgValue_51 (104)  [1/1] 0.00ns  loc: astro.cpp:88
+:49  store i27 0, i27* @p_y_V_8, align 16
+
+ST_1: StgValue_52 (105)  [1/1] 0.00ns  loc: astro.cpp:89
+:50  store i27 0, i27* @p_z_V_8, align 16
+
+ST_1: StgValue_53 (106)  [1/1] 0.00ns  loc: astro.cpp:90
+:51  store i27 0, i27* @p_vx_V_8, align 16
+
+ST_1: StgValue_54 (107)  [1/1] 0.00ns  loc: astro.cpp:91
+:52  store i27 0, i27* @p_vy_V_8, align 16
+
+ST_1: StgValue_55 (108)  [1/1] 0.00ns  loc: astro.cpp:92
+:53  store i27 0, i27* @p_vz_V_8, align 16
+
+ST_1: StgValue_56 (109)  [1/1] 0.00ns  loc: astro.cpp:94
+:54  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

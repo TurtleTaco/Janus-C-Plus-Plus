@@ -1,0 +1,152 @@
+
+
+================================================================
+== Vivado HLS Report for 'drift'
+================================================================
+* Date:           Fri Nov 10 12:18:59 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        astroSim
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffve1924-3-e-es2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      0.00|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+---------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|    FF   |   LUT  | URAM|
++-----------------+---------+-------+---------+--------+-----+
+|DSP              |        -|      -|        -|       -|    -|
+|Expression       |        -|      -|        -|       -|    -|
+|FIFO             |        -|      -|        -|       -|    -|
+|Instance         |        -|      -|        -|       -|    -|
+|Memory           |        -|      -|        -|       -|    -|
+|Multiplexer      |        -|      -|        -|       -|    -|
+|Register         |        -|      -|        -|       -|    -|
++-----------------+---------+-------+---------+--------+-----+
+|Total            |        0|      0|        0|       0|    0|
++-----------------+---------+-------+---------+--------+-----+
+|Available        |     1968|   1968|  1045440|  522720|  128|
++-----------------+---------+-------+---------+--------+-----+
+|Utilization (%)  |        0|      0|        0|       0|    0|
++-----------------+---------+-------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------+-----+-----+------------+------------------+--------------+
+|     RTL Ports    | Dir | Bits|  Protocol  |   Source Object  |    C Type    |
++------------------+-----+-----+------------+------------------+--------------+
+|p_int_0_x_V_read  |  in |   27|   ap_none  | p_int_0_x_V_read |    scalar    |
+|p_int_1_x_V_read  |  in |   27|   ap_none  | p_int_1_x_V_read |    scalar    |
+|p_int_2_x_V_read  |  in |   27|   ap_none  | p_int_2_x_V_read |    scalar    |
+|p_int_3_x_V_read  |  in |   27|   ap_none  | p_int_3_x_V_read |    scalar    |
+|p_int_4_x_V_read  |  in |   27|   ap_none  | p_int_4_x_V_read |    scalar    |
+|p_int_5_x_V_read  |  in |   27|   ap_none  | p_int_5_x_V_read |    scalar    |
+|p_int_6_x_V_read  |  in |   27|   ap_none  | p_int_6_x_V_read |    scalar    |
+|p_int_7_x_V_read  |  in |   27|   ap_none  | p_int_7_x_V_read |    scalar    |
+|p_int_8_x_V_read  |  in |   27|   ap_none  | p_int_8_x_V_read |    scalar    |
+|p_int_0_y_V_read  |  in |   27|   ap_none  | p_int_0_y_V_read |    scalar    |
+|p_int_1_y_V_read  |  in |   27|   ap_none  | p_int_1_y_V_read |    scalar    |
+|p_int_2_y_V_read  |  in |   27|   ap_none  | p_int_2_y_V_read |    scalar    |
+|p_int_3_y_V_read  |  in |   27|   ap_none  | p_int_3_y_V_read |    scalar    |
+|p_int_4_y_V_read  |  in |   27|   ap_none  | p_int_4_y_V_read |    scalar    |
+|p_int_5_y_V_read  |  in |   27|   ap_none  | p_int_5_y_V_read |    scalar    |
+|p_int_6_y_V_read  |  in |   27|   ap_none  | p_int_6_y_V_read |    scalar    |
+|p_int_7_y_V_read  |  in |   27|   ap_none  | p_int_7_y_V_read |    scalar    |
+|p_int_8_y_V_read  |  in |   27|   ap_none  | p_int_8_y_V_read |    scalar    |
+|p_int_0_z_V_read  |  in |   27|   ap_none  | p_int_0_z_V_read |    scalar    |
+|p_int_1_z_V_read  |  in |   27|   ap_none  | p_int_1_z_V_read |    scalar    |
+|p_int_2_z_V_read  |  in |   27|   ap_none  | p_int_2_z_V_read |    scalar    |
+|p_int_3_z_V_read  |  in |   27|   ap_none  | p_int_3_z_V_read |    scalar    |
+|p_int_4_z_V_read  |  in |   27|   ap_none  | p_int_4_z_V_read |    scalar    |
+|p_int_5_z_V_read  |  in |   27|   ap_none  | p_int_5_z_V_read |    scalar    |
+|p_int_6_z_V_read  |  in |   27|   ap_none  | p_int_6_z_V_read |    scalar    |
+|p_int_7_z_V_read  |  in |   27|   ap_none  | p_int_7_z_V_read |    scalar    |
+|p_int_8_z_V_read  |  in |   27|   ap_none  | p_int_8_z_V_read |    scalar    |
+|ap_return_0       | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_1       | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_2       | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_3       | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_4       | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_5       | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_6       | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_7       | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_8       | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_9       | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_10      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_11      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_12      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_13      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_14      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_15      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_16      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_17      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_18      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_19      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_20      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_21      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_22      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_23      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_24      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_25      | out |   27| ap_ctrl_hs |       drift      | return value |
+|ap_return_26      | out |   27| ap_ctrl_hs |       drift      | return value |
++------------------+-----+-----+------------+------------------+--------------+
+

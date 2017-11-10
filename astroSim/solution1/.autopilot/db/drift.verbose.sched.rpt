@@ -1,0 +1,271 @@
+
+
+================================================================
+== Vivado HLS Report for 'drift'
+================================================================
+* Date:           Fri Nov 10 12:18:15 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        astroSim
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffve1924-3-e-es2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      0.00|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 1
+* Pipeline: 1
+  Pipeline-0: II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: p_int_8_z_V_read_1 (28)  [1/1] 0.00ns
+ap_fixed_base.exit.0:0  %p_int_8_z_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_8_z_V_read)
+
+ST_1: p_int_7_z_V_read_1 (29)  [1/1] 0.00ns
+ap_fixed_base.exit.0:1  %p_int_7_z_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_7_z_V_read)
+
+ST_1: p_int_6_z_V_read_1 (30)  [1/1] 0.00ns
+ap_fixed_base.exit.0:2  %p_int_6_z_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_6_z_V_read)
+
+ST_1: p_int_5_z_V_read_1 (31)  [1/1] 0.00ns
+ap_fixed_base.exit.0:3  %p_int_5_z_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_5_z_V_read)
+
+ST_1: p_int_4_z_V_read_1 (32)  [1/1] 0.00ns
+ap_fixed_base.exit.0:4  %p_int_4_z_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_4_z_V_read)
+
+ST_1: p_int_3_z_V_read_1 (33)  [1/1] 0.00ns
+ap_fixed_base.exit.0:5  %p_int_3_z_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_3_z_V_read)
+
+ST_1: p_int_2_z_V_read_1 (34)  [1/1] 0.00ns
+ap_fixed_base.exit.0:6  %p_int_2_z_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_2_z_V_read)
+
+ST_1: p_int_1_z_V_read_1 (35)  [1/1] 0.00ns
+ap_fixed_base.exit.0:7  %p_int_1_z_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_1_z_V_read)
+
+ST_1: p_int_0_z_V_read_1 (36)  [1/1] 0.00ns
+ap_fixed_base.exit.0:8  %p_int_0_z_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_0_z_V_read)
+
+ST_1: p_int_8_y_V_read_1 (37)  [1/1] 0.00ns
+ap_fixed_base.exit.0:9  %p_int_8_y_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_8_y_V_read)
+
+ST_1: p_int_7_y_V_read_1 (38)  [1/1] 0.00ns
+ap_fixed_base.exit.0:10  %p_int_7_y_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_7_y_V_read)
+
+ST_1: p_int_6_y_V_read_1 (39)  [1/1] 0.00ns
+ap_fixed_base.exit.0:11  %p_int_6_y_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_6_y_V_read)
+
+ST_1: p_int_5_y_V_read_1 (40)  [1/1] 0.00ns
+ap_fixed_base.exit.0:12  %p_int_5_y_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_5_y_V_read)
+
+ST_1: p_int_4_y_V_read_1 (41)  [1/1] 0.00ns
+ap_fixed_base.exit.0:13  %p_int_4_y_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_4_y_V_read)
+
+ST_1: p_int_3_y_V_read_1 (42)  [1/1] 0.00ns
+ap_fixed_base.exit.0:14  %p_int_3_y_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_3_y_V_read)
+
+ST_1: p_int_2_y_V_read_1 (43)  [1/1] 0.00ns
+ap_fixed_base.exit.0:15  %p_int_2_y_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_2_y_V_read)
+
+ST_1: p_int_1_y_V_read_1 (44)  [1/1] 0.00ns
+ap_fixed_base.exit.0:16  %p_int_1_y_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_1_y_V_read)
+
+ST_1: p_int_0_y_V_read_1 (45)  [1/1] 0.00ns
+ap_fixed_base.exit.0:17  %p_int_0_y_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_0_y_V_read)
+
+ST_1: p_int_8_x_V_read_1 (46)  [1/1] 0.00ns
+ap_fixed_base.exit.0:18  %p_int_8_x_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_8_x_V_read)
+
+ST_1: p_int_7_x_V_read_1 (47)  [1/1] 0.00ns
+ap_fixed_base.exit.0:19  %p_int_7_x_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_7_x_V_read)
+
+ST_1: p_int_6_x_V_read_1 (48)  [1/1] 0.00ns
+ap_fixed_base.exit.0:20  %p_int_6_x_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_6_x_V_read)
+
+ST_1: p_int_5_x_V_read_1 (49)  [1/1] 0.00ns
+ap_fixed_base.exit.0:21  %p_int_5_x_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_5_x_V_read)
+
+ST_1: p_int_4_x_V_read_1 (50)  [1/1] 0.00ns
+ap_fixed_base.exit.0:22  %p_int_4_x_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_4_x_V_read)
+
+ST_1: p_int_3_x_V_read_1 (51)  [1/1] 0.00ns
+ap_fixed_base.exit.0:23  %p_int_3_x_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_3_x_V_read)
+
+ST_1: p_int_2_x_V_read_1 (52)  [1/1] 0.00ns
+ap_fixed_base.exit.0:24  %p_int_2_x_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_2_x_V_read)
+
+ST_1: p_int_1_x_V_read_1 (53)  [1/1] 0.00ns
+ap_fixed_base.exit.0:25  %p_int_1_x_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_1_x_V_read)
+
+ST_1: p_int_0_x_V_read_1 (54)  [1/1] 0.00ns
+ap_fixed_base.exit.0:26  %p_int_0_x_V_read_1 = call i27 @_ssdm_op_Read.ap_auto.i27(i27 %p_int_0_x_V_read)
+
+ST_1: mrv (55)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:27  %mrv = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } undef, i27 %p_int_0_x_V_read_1, 0
+
+ST_1: mrv_1 (56)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:28  %mrv_1 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv, i27 %p_int_1_x_V_read_1, 1
+
+ST_1: mrv_2 (57)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:29  %mrv_2 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_1, i27 %p_int_2_x_V_read_1, 2
+
+ST_1: mrv_3 (58)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:30  %mrv_3 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_2, i27 %p_int_3_x_V_read_1, 3
+
+ST_1: mrv_4 (59)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:31  %mrv_4 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_3, i27 %p_int_4_x_V_read_1, 4
+
+ST_1: mrv_5 (60)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:32  %mrv_5 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_4, i27 %p_int_5_x_V_read_1, 5
+
+ST_1: mrv_6 (61)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:33  %mrv_6 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_5, i27 %p_int_6_x_V_read_1, 6
+
+ST_1: mrv_7 (62)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:34  %mrv_7 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_6, i27 %p_int_7_x_V_read_1, 7
+
+ST_1: mrv_8 (63)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:35  %mrv_8 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_7, i27 %p_int_8_x_V_read_1, 8
+
+ST_1: mrv_9 (64)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:36  %mrv_9 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_8, i27 %p_int_0_y_V_read_1, 9
+
+ST_1: mrv_s (65)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:37  %mrv_s = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_9, i27 %p_int_1_y_V_read_1, 10
+
+ST_1: mrv_10 (66)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:38  %mrv_10 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_s, i27 %p_int_2_y_V_read_1, 11
+
+ST_1: mrv_11 (67)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:39  %mrv_11 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_10, i27 %p_int_3_y_V_read_1, 12
+
+ST_1: mrv_12 (68)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:40  %mrv_12 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_11, i27 %p_int_4_y_V_read_1, 13
+
+ST_1: mrv_13 (69)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:41  %mrv_13 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_12, i27 %p_int_5_y_V_read_1, 14
+
+ST_1: mrv_14 (70)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:42  %mrv_14 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_13, i27 %p_int_6_y_V_read_1, 15
+
+ST_1: mrv_15 (71)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:43  %mrv_15 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_14, i27 %p_int_7_y_V_read_1, 16
+
+ST_1: mrv_16 (72)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:44  %mrv_16 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_15, i27 %p_int_8_y_V_read_1, 17
+
+ST_1: mrv_17 (73)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:45  %mrv_17 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_16, i27 %p_int_0_z_V_read_1, 18
+
+ST_1: mrv_18 (74)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:46  %mrv_18 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_17, i27 %p_int_1_z_V_read_1, 19
+
+ST_1: mrv_19 (75)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:47  %mrv_19 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_18, i27 %p_int_2_z_V_read_1, 20
+
+ST_1: mrv_20 (76)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:48  %mrv_20 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_19, i27 %p_int_3_z_V_read_1, 21
+
+ST_1: mrv_21 (77)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:49  %mrv_21 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_20, i27 %p_int_4_z_V_read_1, 22
+
+ST_1: mrv_22 (78)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:50  %mrv_22 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_21, i27 %p_int_5_z_V_read_1, 23
+
+ST_1: mrv_23 (79)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:51  %mrv_23 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_22, i27 %p_int_6_z_V_read_1, 24
+
+ST_1: mrv_24 (80)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:52  %mrv_24 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_23, i27 %p_int_7_z_V_read_1, 25
+
+ST_1: mrv_25 (81)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:53  %mrv_25 = insertvalue { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_24, i27 %p_int_8_z_V_read_1, 26
+
+ST_1: StgValue_56 (82)  [1/1] 0.00ns  loc: astro.cpp:110
+ap_fixed_base.exit.0:54  ret { i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27, i27 } %mrv_25
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

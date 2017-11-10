@@ -1,0 +1,206 @@
+
+
+================================================================
+== Vivado HLS Report for 'to_double'
+================================================================
+* Date:           Fri Nov 10 12:19:00 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        astroSim
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffve1924-3-e-es2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      0.00|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+---------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|    FF   |   LUT  | URAM|
++-----------------+---------+-------+---------+--------+-----+
+|DSP              |        -|      -|        -|       -|    -|
+|Expression       |        -|      -|        -|       -|    -|
+|FIFO             |        -|      -|        -|       -|    -|
+|Instance         |        -|      -|        -|       -|    -|
+|Memory           |        -|      -|        -|       -|    -|
+|Multiplexer      |        -|      -|        -|       -|    -|
+|Register         |        -|      -|        -|       -|    -|
++-----------------+---------+-------+---------+--------+-----+
+|Total            |        0|      0|        0|       0|    0|
++-----------------+---------+-------+---------+--------+-----+
+|Available        |     1968|   1968|  1045440|  522720|  128|
++-----------------+---------+-------+---------+--------+-----+
+|Utilization (%)  |        0|      0|        0|       0|    0|
++-----------------+---------+-------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------+-----+-----+---------+--------------+---------+
+|    RTL Ports    | Dir | Bits| Protocol| Source Object|  C Type |
++-----------------+-----+-----+---------+--------------+---------+
+|p_x_V_0          | out |   27|  ap_vld |    p_x_V_0   | pointer |
+|p_x_V_0_ap_vld   | out |    1|  ap_vld |    p_x_V_0   | pointer |
+|p_y_V_0          | out |   27|  ap_vld |    p_y_V_0   | pointer |
+|p_y_V_0_ap_vld   | out |    1|  ap_vld |    p_y_V_0   | pointer |
+|p_z_V_0          | out |   27|  ap_vld |    p_z_V_0   | pointer |
+|p_z_V_0_ap_vld   | out |    1|  ap_vld |    p_z_V_0   | pointer |
+|p_vx_V_0         | out |   27|  ap_vld |   p_vx_V_0   | pointer |
+|p_vx_V_0_ap_vld  | out |    1|  ap_vld |   p_vx_V_0   | pointer |
+|p_vy_V_0         | out |   27|  ap_vld |   p_vy_V_0   | pointer |
+|p_vy_V_0_ap_vld  | out |    1|  ap_vld |   p_vy_V_0   | pointer |
+|p_vz_V_0         | out |   27|  ap_vld |   p_vz_V_0   | pointer |
+|p_vz_V_0_ap_vld  | out |    1|  ap_vld |   p_vz_V_0   | pointer |
+|p_x_V_1          | out |   27|  ap_vld |    p_x_V_1   | pointer |
+|p_x_V_1_ap_vld   | out |    1|  ap_vld |    p_x_V_1   | pointer |
+|p_y_V_1          | out |   27|  ap_vld |    p_y_V_1   | pointer |
+|p_y_V_1_ap_vld   | out |    1|  ap_vld |    p_y_V_1   | pointer |
+|p_z_V_1          | out |   27|  ap_vld |    p_z_V_1   | pointer |
+|p_z_V_1_ap_vld   | out |    1|  ap_vld |    p_z_V_1   | pointer |
+|p_vx_V_1         | out |   27|  ap_vld |   p_vx_V_1   | pointer |
+|p_vx_V_1_ap_vld  | out |    1|  ap_vld |   p_vx_V_1   | pointer |
+|p_vy_V_1         | out |   27|  ap_vld |   p_vy_V_1   | pointer |
+|p_vy_V_1_ap_vld  | out |    1|  ap_vld |   p_vy_V_1   | pointer |
+|p_vz_V_1         | out |   27|  ap_vld |   p_vz_V_1   | pointer |
+|p_vz_V_1_ap_vld  | out |    1|  ap_vld |   p_vz_V_1   | pointer |
+|p_x_V_2          | out |   27|  ap_vld |    p_x_V_2   | pointer |
+|p_x_V_2_ap_vld   | out |    1|  ap_vld |    p_x_V_2   | pointer |
+|p_y_V_2          | out |   27|  ap_vld |    p_y_V_2   | pointer |
+|p_y_V_2_ap_vld   | out |    1|  ap_vld |    p_y_V_2   | pointer |
+|p_z_V_2          | out |   27|  ap_vld |    p_z_V_2   | pointer |
+|p_z_V_2_ap_vld   | out |    1|  ap_vld |    p_z_V_2   | pointer |
+|p_vx_V_2         | out |   27|  ap_vld |   p_vx_V_2   | pointer |
+|p_vx_V_2_ap_vld  | out |    1|  ap_vld |   p_vx_V_2   | pointer |
+|p_vy_V_2         | out |   27|  ap_vld |   p_vy_V_2   | pointer |
+|p_vy_V_2_ap_vld  | out |    1|  ap_vld |   p_vy_V_2   | pointer |
+|p_vz_V_2         | out |   27|  ap_vld |   p_vz_V_2   | pointer |
+|p_vz_V_2_ap_vld  | out |    1|  ap_vld |   p_vz_V_2   | pointer |
+|p_x_V_3          | out |   27|  ap_vld |    p_x_V_3   | pointer |
+|p_x_V_3_ap_vld   | out |    1|  ap_vld |    p_x_V_3   | pointer |
+|p_y_V_3          | out |   27|  ap_vld |    p_y_V_3   | pointer |
+|p_y_V_3_ap_vld   | out |    1|  ap_vld |    p_y_V_3   | pointer |
+|p_z_V_3          | out |   27|  ap_vld |    p_z_V_3   | pointer |
+|p_z_V_3_ap_vld   | out |    1|  ap_vld |    p_z_V_3   | pointer |
+|p_vx_V_3         | out |   27|  ap_vld |   p_vx_V_3   | pointer |
+|p_vx_V_3_ap_vld  | out |    1|  ap_vld |   p_vx_V_3   | pointer |
+|p_vy_V_3         | out |   27|  ap_vld |   p_vy_V_3   | pointer |
+|p_vy_V_3_ap_vld  | out |    1|  ap_vld |   p_vy_V_3   | pointer |
+|p_vz_V_3         | out |   27|  ap_vld |   p_vz_V_3   | pointer |
+|p_vz_V_3_ap_vld  | out |    1|  ap_vld |   p_vz_V_3   | pointer |
+|p_x_V_4          | out |   27|  ap_vld |    p_x_V_4   | pointer |
+|p_x_V_4_ap_vld   | out |    1|  ap_vld |    p_x_V_4   | pointer |
+|p_y_V_4          | out |   27|  ap_vld |    p_y_V_4   | pointer |
+|p_y_V_4_ap_vld   | out |    1|  ap_vld |    p_y_V_4   | pointer |
+|p_z_V_4          | out |   27|  ap_vld |    p_z_V_4   | pointer |
+|p_z_V_4_ap_vld   | out |    1|  ap_vld |    p_z_V_4   | pointer |
+|p_vx_V_4         | out |   27|  ap_vld |   p_vx_V_4   | pointer |
+|p_vx_V_4_ap_vld  | out |    1|  ap_vld |   p_vx_V_4   | pointer |
+|p_vy_V_4         | out |   27|  ap_vld |   p_vy_V_4   | pointer |
+|p_vy_V_4_ap_vld  | out |    1|  ap_vld |   p_vy_V_4   | pointer |
+|p_vz_V_4         | out |   27|  ap_vld |   p_vz_V_4   | pointer |
+|p_vz_V_4_ap_vld  | out |    1|  ap_vld |   p_vz_V_4   | pointer |
+|p_x_V_5          | out |   27|  ap_vld |    p_x_V_5   | pointer |
+|p_x_V_5_ap_vld   | out |    1|  ap_vld |    p_x_V_5   | pointer |
+|p_y_V_5          | out |   27|  ap_vld |    p_y_V_5   | pointer |
+|p_y_V_5_ap_vld   | out |    1|  ap_vld |    p_y_V_5   | pointer |
+|p_z_V_5          | out |   27|  ap_vld |    p_z_V_5   | pointer |
+|p_z_V_5_ap_vld   | out |    1|  ap_vld |    p_z_V_5   | pointer |
+|p_vx_V_5         | out |   27|  ap_vld |   p_vx_V_5   | pointer |
+|p_vx_V_5_ap_vld  | out |    1|  ap_vld |   p_vx_V_5   | pointer |
+|p_vy_V_5         | out |   27|  ap_vld |   p_vy_V_5   | pointer |
+|p_vy_V_5_ap_vld  | out |    1|  ap_vld |   p_vy_V_5   | pointer |
+|p_vz_V_5         | out |   27|  ap_vld |   p_vz_V_5   | pointer |
+|p_vz_V_5_ap_vld  | out |    1|  ap_vld |   p_vz_V_5   | pointer |
+|p_x_V_6          | out |   27|  ap_vld |    p_x_V_6   | pointer |
+|p_x_V_6_ap_vld   | out |    1|  ap_vld |    p_x_V_6   | pointer |
+|p_y_V_6          | out |   27|  ap_vld |    p_y_V_6   | pointer |
+|p_y_V_6_ap_vld   | out |    1|  ap_vld |    p_y_V_6   | pointer |
+|p_z_V_6          | out |   27|  ap_vld |    p_z_V_6   | pointer |
+|p_z_V_6_ap_vld   | out |    1|  ap_vld |    p_z_V_6   | pointer |
+|p_vx_V_6         | out |   27|  ap_vld |   p_vx_V_6   | pointer |
+|p_vx_V_6_ap_vld  | out |    1|  ap_vld |   p_vx_V_6   | pointer |
+|p_vy_V_6         | out |   27|  ap_vld |   p_vy_V_6   | pointer |
+|p_vy_V_6_ap_vld  | out |    1|  ap_vld |   p_vy_V_6   | pointer |
+|p_vz_V_6         | out |   27|  ap_vld |   p_vz_V_6   | pointer |
+|p_vz_V_6_ap_vld  | out |    1|  ap_vld |   p_vz_V_6   | pointer |
+|p_x_V_7          | out |   27|  ap_vld |    p_x_V_7   | pointer |
+|p_x_V_7_ap_vld   | out |    1|  ap_vld |    p_x_V_7   | pointer |
+|p_y_V_7          | out |   27|  ap_vld |    p_y_V_7   | pointer |
+|p_y_V_7_ap_vld   | out |    1|  ap_vld |    p_y_V_7   | pointer |
+|p_z_V_7          | out |   27|  ap_vld |    p_z_V_7   | pointer |
+|p_z_V_7_ap_vld   | out |    1|  ap_vld |    p_z_V_7   | pointer |
+|p_vx_V_7         | out |   27|  ap_vld |   p_vx_V_7   | pointer |
+|p_vx_V_7_ap_vld  | out |    1|  ap_vld |   p_vx_V_7   | pointer |
+|p_vy_V_7         | out |   27|  ap_vld |   p_vy_V_7   | pointer |
+|p_vy_V_7_ap_vld  | out |    1|  ap_vld |   p_vy_V_7   | pointer |
+|p_vz_V_7         | out |   27|  ap_vld |   p_vz_V_7   | pointer |
+|p_vz_V_7_ap_vld  | out |    1|  ap_vld |   p_vz_V_7   | pointer |
+|p_x_V_8          | out |   27|  ap_vld |    p_x_V_8   | pointer |
+|p_x_V_8_ap_vld   | out |    1|  ap_vld |    p_x_V_8   | pointer |
+|p_y_V_8          | out |   27|  ap_vld |    p_y_V_8   | pointer |
+|p_y_V_8_ap_vld   | out |    1|  ap_vld |    p_y_V_8   | pointer |
+|p_z_V_8          | out |   27|  ap_vld |    p_z_V_8   | pointer |
+|p_z_V_8_ap_vld   | out |    1|  ap_vld |    p_z_V_8   | pointer |
+|p_vx_V_8         | out |   27|  ap_vld |   p_vx_V_8   | pointer |
+|p_vx_V_8_ap_vld  | out |    1|  ap_vld |   p_vx_V_8   | pointer |
+|p_vy_V_8         | out |   27|  ap_vld |   p_vy_V_8   | pointer |
+|p_vy_V_8_ap_vld  | out |    1|  ap_vld |   p_vy_V_8   | pointer |
+|p_vz_V_8         | out |   27|  ap_vld |   p_vz_V_8   | pointer |
+|p_vz_V_8_ap_vld  | out |    1|  ap_vld |   p_vz_V_8   | pointer |
++-----------------+-----+-----+---------+--------------+---------+
+
